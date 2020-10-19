@@ -1,0 +1,13 @@
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "staging"'
+
+stages:
+  - deploy
+
+update_deployment:
+  stage: deploy
+  script:
+    - cd $REPOSITORY_ROOT
+    - git fetch origin $CI_COMMIT_BRANCH
+    - git checkout origin/$CI_COMMIT_BRANCH
