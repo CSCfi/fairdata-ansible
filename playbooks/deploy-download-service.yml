@@ -61,6 +61,8 @@
       application_rabbitmq_pass: '{{ download_application_rabbitmq_pass }}'
       application_jwt_secret: '{{ download_application_jwt_secret }}'
       application_service_metax_url: '{{ download_application_service_metax_url }}'
+      application_service_metax_user: '{{ download_application_service_metax_user }}'
+      application_service_metax_pass: '{{ download_application_service_metax_pass }}'
       public_port: '{{ download_public_port | default(4430) }}'
       host: '{{ download_host | default("0.0.0.0") }}'
       daemonize_server: '{{ download_daemonize_server | default(False) }}'
