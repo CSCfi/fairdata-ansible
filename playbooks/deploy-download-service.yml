@@ -64,6 +64,7 @@
       application_service_metax_user: '{{ download_application_service_metax_user }}'
       application_service_metax_pass: '{{ download_application_service_metax_pass }}'
       public_port: '{{ download_public_port | default(4430) }}'
+      internal_port: '{{ download_internal_port | default(4431) }}'
       host: '{{ download_host | default("0.0.0.0") }}'
       daemonize_server: '{{ download_daemonize_server | default(False) }}'
       daemonize_generator: '{{ download_daemonize_generator | default(False) }}'
