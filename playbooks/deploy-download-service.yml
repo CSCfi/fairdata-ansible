@@ -52,7 +52,6 @@
       repo_version: '{{ download_repo_version | default("master") }}'
       repo_src: '{{ download_repo_src }}'
       repo_dest_root: '{{ download_repo_dest_root | default("/opt") }}'
-      virtualenv_python: '{{ download_virtualenv_python | default("python3") }}'
       virtualenv_command: '{{ download_virtualenv_command | default("virtualenv") }}'
       application_environment: '{{ download_application_environment | default("development") }}'
       application_rabbitmq_host: '{{ download_application_rabbitmq_host | default("localhost") }}'
