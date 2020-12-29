@@ -1,0 +1,24 @@
+---
+- name: Deploy SSO Service
+  hosts: ssoservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-sso
+    vars:
+      repo_install_method: '{{ sso_repo_install_method | default("pull") }}'
+      repo_deploy_key: '{{ sso_repo_deploy_key | default("~/.ssh/id_rsa") }}'
+      repo_url: '{{ sso_repo_url | default("https://github.com/cscfi/fairdata-sso") }}'
+      repo_version: '{{ sso_repo_version | default("master") }}'
+      repo_dest_root: '{{ sso_repo_dest_root | default("/opt") }}'
+      instance_name: '{{ sso_instance_name | default("sso") }}'
+      instance_domain: '{{ sso_instance_domain | default("fairdata.fi") }}'
+      virtualenv_command: '{{ python_virtualenv_command | default("virtualenv") }}'
+      application_environment: '{{ sso_application_environment | default("PRODUCTION") }}'
+      application_debug: '{{ sso_application_debug | default("false") }}'
+      application_fdwe_url: '{{ sso_application_fdwe_url | default("") }}'
+      application_aai_proxy: '{{ sso_application_aai_proxy }}'
+      application_no_haka: '{{ sso_application_no_haka | default("false") }}'
+      saml_settings_file: '{{ sso_saml_settings_file }}'
+      nginx_custom_certificates: '{{ sso_nginx_custom_certificates | default(False) }}'
+      nginx_ssl_certificate: '{{ sso_nginx_ssl_certificate | default("") }}'
+      nginx_ssl_certificate_key: '{{ sso_nginx_ssl_certificate_key | default("") }}'
