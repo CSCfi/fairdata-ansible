@@ -1,0 +1,29 @@
+---
+- name: Deploy SSO Service
+  hosts: ssoservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-python
+    vars:
+      python_executable: '{{ python_python_executable | default("python3") }}'
+      install_method: '{{ python_install_method | default("none") }}'
+      version: '{{ python_version | default("3.6.8") }}'
+      minor_version: '{{ python_minor_version | default("3.6") }}'
+      rpm_src: '{{ python_rpm_src | default("") }}'
+      rpm_dest: '{{ python_rpm_dest | default("") }}'
+  - role: fairdata-ansible-sso
+    vars:
+      repo_install_method: '{{ sso_repo_install_method | default("pull") }}'
+      repo_deploy_key: '{{ sso_repo_deploy_key }}'
+      repo_url: '{{ sso_repo_url }}'
+      repo_version: '{{ sso_repo_version | default("master") }}'
+      repo_dest_root: '{{ sso_repo_dest_root | default("/opt") }}'
+      virtualenv_command: '{{ python_virtualenv_command | default("virtualenv") }}'
+      application_domain: '{{ sso_application_domain }}'
+      application_public_url: '{{ sso_application_public_url }}'
+      application_aai_proxy: '{{ sso_application_aai_proxy }}'
+      saml_settings_file: '{{ sso_saml_settings_file }}'
+      nginx_server_name: '{{ sso_nginx_server_name }}'
+      nginx_custom_certificates: '{{ sso_nginx_custom_certificates | default("false") }}'
+      nginx_ssl_certificate: '{{ sso_nginx_ssl_certificate }}'
+      nginx_ssl_certificate_key: '{{ sso_nginx_ssl_certificate_key }}'
