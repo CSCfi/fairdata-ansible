@@ -25,12 +25,11 @@
     vars:
       disable_selinux: '{{ download_disable_selinux }}'
       configure_nginx: '{{ download_configure_nginx | default(False) }}'
-      install_secrets: '{{ download_nginx_install_secrets | default(False) }}'
-      ssl_secrets:
-        - src: '{{ download_nginx_ssl_certificate_source }}'
-          dest: '{{ download_nginx_ssl_certificate }}'
-        - src: '{{ download_nginx_ssl_certificate_key_source }}'
-          dest: '{{ download_nginx_ssl_certificate_key }}'
+      install_shared_ssl_certificate: '{{ download_install_shared_ssl_certificate | default(False) }}'
+      ssl_shared_certificate_src: '{{ download_ssl_shared_certificate_src }}'
+      ssl_shared_certificate_dest: '{{ download_ssl_shared_certificate_dest }}'
+      ssl_shared_certificate_key_src: '{{ download_ssl_shared_certificate_key_src }}'
+      ssl_shared_certificate_key_dest: '{{ download_ssl_shared_certificate_key_dest }}'
   - role: fairdata-ansible-python
     vars:
       python_executable: '{{ python_python_executable | default("python3") }}'

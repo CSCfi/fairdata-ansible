@@ -11,6 +11,15 @@
       minor_version: '{{ python_minor_version | default("3.6") }}'
       rpm_src: '{{ python_rpm_src | default("") }}'
       rpm_dest: '{{ python_rpm_dest | default("") }}'
+  - role: fairdata-ansible-nginx
+    vars:
+      disable_selinux: '{{ sso_disable_selinux }}'
+      configure_nginx: '{{ sso_configure_nginx | default(False) }}'
+      install_shared_ssl_certificate: '{{ sso_install_shared_ssl_certificate | default(False) }}'
+      ssl_shared_certificate_src: '{{ sso_ssl_shared_certificate_src }}'
+      ssl_shared_certificate_dest: '{{ sso_ssl_shared_certificate_dest }}'
+      ssl_shared_certificate_key_src: '{{ sso_ssl_shared_certificate_key_src }}'
+      ssl_shared_certificate_key_dest: '{{ sso_ssl_shared_certificate_key_dest }}'
   - role: fairdata-ansible-sso
     vars:
       repo_install_method: '{{ sso_repo_install_method | default("pull") }}'
