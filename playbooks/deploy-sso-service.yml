@@ -33,6 +33,6 @@
       application_aai_proxy: '{{ sso_application_aai_proxy }}'
       saml_settings_file: '{{ sso_saml_settings_file }}'
       nginx_server_name: '{{ sso_nginx_server_name }}'
-      nginx_custom_certificates: '{{ sso_nginx_custom_certificates | default("false") }}'
+      nginx_custom_certificates: '{{ sso_nginx_custom_certificates | default(False) }}'
       nginx_ssl_certificate: '{{ sso_nginx_ssl_certificate }}'
       nginx_ssl_certificate_key: '{{ sso_nginx_ssl_certificate_key }}'
