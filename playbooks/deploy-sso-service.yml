@@ -37,3 +37,4 @@
       nginx_custom_certificates: '{{ sso_nginx_custom_certificates | default(False) }}'
       nginx_ssl_certificate: '{{ sso_nginx_ssl_certificate | default("") }}'
       nginx_ssl_certificate_key: '{{ sso_nginx_ssl_certificate_key | default("") }}'
+      run_tests: '{{ sso_run_tests | default(True) }}'
