@@ -8,6 +8,11 @@
   src: https://github.com/CSCfi/fairdata-ansible-nginx.git
   version: stable
   trackbranch: stable
+- name: fairdata-ansible-postgresql
+  scm: git
+  src: https://github.com/CSCfi/fairdata-ansible-postgresql.git
+  version: stable
+  trackbranch: stable
 - name: fairdata-ansible-python
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-python.git
