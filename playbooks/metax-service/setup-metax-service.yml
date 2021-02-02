@@ -1,0 +1,5 @@
+---
+- import_playbook: prepare-metax-db-servers.yml
+- import_playbook: prepare-metax-data-servers.yml
+- import_playbook: prepare-metax-app-servers.yml
+- import_playbook: deploy-metax.yml

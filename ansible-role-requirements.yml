@@ -8,6 +8,11 @@
   src: https://github.com/CSCfi/fairdata-ansible-download-service.git
   version: stable
   trackbranch: stable
+- name: fairdata-ansible-metax
+  scm: git
+  src: https://github.com/CSCfi/fairdata-ansible-metax.git
+  version: stable
+  trackbranch: stable
 - name: fairdata-ansible-mounts
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-mounts.git
@@ -31,6 +36,11 @@
 - name: fairdata-ansible-rabbitmq
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-rabbitmq.git
+  version: stable
+  trackbranch: stable
+- name: fairdata-ansible-redis
+  scm: git
+  src: https://github.com/CSCfi/fairdata-ansible-redis.git
   version: stable
   trackbranch: stable
 - name: fairdata-ansible-sso

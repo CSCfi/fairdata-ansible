@@ -8,6 +8,11 @@
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-download-service.git
   version: staging
   trackbranch: staging
+- name: fairdata-ansible-metax
+  scm: git
+  src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-metax.git
+  version: staging
+  trackbranch: staging
 - name: fairdata-ansible-mounts
   scm: git
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-mounts.git
@@ -31,6 +36,11 @@
 - name: fairdata-ansible-rabbitmq
   scm: git
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-rabbitmq.git
+  version: staging
+  trackbranch: staging
+- name: fairdata-ansible-redis
+  scm: git
+  src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-redis.git
   version: staging
   trackbranch: staging
 - name: fairdata-ansible-sso

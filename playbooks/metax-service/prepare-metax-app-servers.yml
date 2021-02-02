@@ -1,0 +1,32 @@
+---
+- name: Prepare Metax API app servers
+  hosts: metaxappservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-python
+    vars:
+      python_executable: '{{ python_python_executable | default("python3") }}'
+      install_method: '{{ python_install_method | default("none") }}'
+      version: '{{ python_version | default("3.6.8") }}'
+      minor_version: '{{ python_minor_version | default("3.6") }}'
+      rpm_src: '{{ python_rpm_src | default("") }}'
+      rpm_dest: '{{ python_rpm_dest | default("") }}'
+  - role: fairdata-ansible-redis
+    vars:
+      bind_address: '{{ metax_redis_bind_address | default("0.0.0.0") }}'
+  - role: fairdata-ansible-nginx
+    vars:
+      install_shared_ssl_certificate: '{{ metax_install_shared_ssl_certificate | default(False) }}'
+      ssl_shared_certificate_src: '{{ metax_ssl_shared_certificate_src | default("") }}'
+      ssl_shared_certificate_dest: '{{ metax_ssl_shared_certificate_dest | default("") }}'
+      ssl_shared_certificate_key_src: '{{ metax_ssl_shared_certificate_key_src | default("") }}'
+      ssl_shared_certificate_key_dest: '{{ metax_ssl_shared_certificate_key_dest | default("") }}'
+    when: metax_configure_proxy | default(True)
+  - role: fairdata-ansible-metax
+    vars:
+      prepare_application: True
+      deploy_application: False
+      configure_proxy: '{{ metax_configure_proxy | default(True) }}'
+      instance_name: '{{ metax_instance_name | default("metax") }}'
+      instance_domain: '{{ metax_instance_domain | default("fairdata.fi") }}'
+      python_virtualenv_command: '{{ metax_python_virtualenv_command | default("virtualenv") }}'

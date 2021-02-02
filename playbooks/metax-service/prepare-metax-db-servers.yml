@@ -1,6 +1,6 @@
 ---
-- name: Prepare DB servers
-  hosts: dbservers
+- name: Prepare Metax API DB servers
+  hosts: metaxdbservers
   remote_user: '{{ deployer }}'
   roles:
   - role: fairdata-ansible-postgresql

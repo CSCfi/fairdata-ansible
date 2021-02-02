@@ -1,0 +1,19 @@
+---
+- name: Deploy Metax API
+  hosts: metaxappservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-metax
+    vars:
+      prepare_application: False
+      deploy_application: True
+      configure_proxy: False
+      instance_name: '{{ metax_instance_name | default("metax") }}'
+      instance_domain: '{{ metax_instance_domain | default("fairdata.fi") }}'
+      repo_url: '{{ metax_repo_url | default("https://github.com/CSCfi/metax-api.git") }}'
+      repo_version: '{{ metax_repo_version | default("master") }}'
+      python_virtualenv_command: '{{ metax_python_virtualenv_command | default("virtualenv") }}'
+      application_database_host: '{{ metax_application_database_host | default("localhost") }}'
+      application_database: '{{ metax_application_database | default("metax") }}'
+      application_database_user: '{{ metax_application_database_user | default("metax") }}'
+      application_database_password: '{{ metax_application_database_password | default("metax") }}'
