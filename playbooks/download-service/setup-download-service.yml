@@ -1,0 +1,3 @@
+---
+- import_playbook: prepare-download-service.yml
+- import_playbook: deploy-download-service.yml

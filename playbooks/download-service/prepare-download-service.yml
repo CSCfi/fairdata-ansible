@@ -1,0 +1,49 @@
+---
+- name: Prepare Fairdata Download Service
+  hosts: downloadservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-mounts
+    vars:
+      ext4_mounts: '{{ download_ext4_mounts | default([]) }}'
+      bind_mounts: '{{ download_bind_mounts | default([]) }}'
+  - role: fairdata-ansible-rabbitmq
+    vars:
+      nodename: '{{ rabbitmq_nodename | default("rabbit") }}'
+      vhosts:
+        - '{{ download_application_rabbitmq_vhost | default("download") }}'
+      users:
+        - user: '{{ download_application_rabbitmq_user | default("download") }}'
+          pass: '{{ download_application_rabbitmq_pass }}'
+          permissions:
+          - vhost: '{{ download_application_rabbitmq_vhost | default("download") }}'
+            configure_priv: .*
+            read_priv: .*
+            write_priv: .*
+  - role: fairdata-ansible-nginx
+    vars:
+      configure_nginx: '{{ download_configure_nginx | default(False) }}'
+      install_shared_ssl_certificate: '{{ download_install_shared_ssl_certificate | default(False) }}'
+      ssl_shared_certificate_src: '{{ download_ssl_shared_certificate_src }}'
+      ssl_shared_certificate_dest: '{{ download_ssl_shared_certificate_dest }}'
+      ssl_shared_certificate_key_src: '{{ download_ssl_shared_certificate_key_src }}'
+      ssl_shared_certificate_key_dest: '{{ download_ssl_shared_certificate_key_dest }}'
+  - role: fairdata-ansible-python
+    vars:
+      python_executable: '{{ python_python_executable | default("python3") }}'
+      install_method: '{{ python_install_method | default("none") }}'
+      version: '{{ python_version | default("3.6.8") }}'
+      minor_version: '{{ python_minor_version | default("3.6") }}'
+      rpm_src: '{{ python_rpm_src | default("") }}'
+      rpm_dest: '{{ python_rpm_dest | default("") }}'
+  - role: fairdata-ansible-download-service
+    vars:
+      prepare_application: True
+      deploy_application: False
+      configure_nginx: '{{ download_configure_nginx | default(True) }}'
+      host: '{{ download_host | default("0.0.0.0") }}'
+      nginx_public_port: '{{ download_nginx_public_port | default(4430) }}'
+      nginx_internal_port: '{{ download_nginx_internal_port | default(4431) }}'
+      nginx_custom_certificates: '{{ download_nginx_custom_certificates | default(False) }}'
+      nginx_ssl_certificate: '{{ download_nginx_ssl_certificate | default("") }}'
+      nginx_ssl_certificate_key: '{{ download_nginx_ssl_certificate_key | default("") }}'

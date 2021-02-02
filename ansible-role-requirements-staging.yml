@@ -3,6 +3,11 @@
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-download-service.git
   version: staging
   trackbranch: staging
+- name: fairdata-ansible-mounts
+  scm: git
+  src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-mounts.git
+  version: staging
+  trackbranch: staging
 - name: fairdata-ansible-nginx
   scm: git
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-nginx.git
