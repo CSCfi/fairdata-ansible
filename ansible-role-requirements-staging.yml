@@ -1,3 +1,8 @@
+- name: ansible-elasticsearch
+  scm: git
+  src: https://github.com/elastic/ansible-elasticsearch.git
+  version: v7.10.2
+  trackbranch: v7.10.2
 - name: fairdata-ansible-download-service
   scm: git
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-download-service.git
