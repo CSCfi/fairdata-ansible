@@ -1,0 +1,10 @@
+---
+- name: Test SSO Service
+  hosts: ssoservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-sso
+    vars:
+      repo_dest_root: '{{ sso_repo_dest_root | default("/opt") }}'
+      instance_name: '{{ sso_instance_name | default("sso") }}'
+      run_tests: True

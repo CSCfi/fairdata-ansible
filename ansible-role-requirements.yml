@@ -3,9 +3,19 @@
   src: https://github.com/CSCfi/fairdata-ansible-download-service.git
   version: stable
   trackbranch: stable
+- name: fairdata-ansible-mounts
+  scm: git
+  src: https://github.com/CSCfi/fairdata-ansible-mounts.git
+  version: stable
+  trackbranch: stable
 - name: fairdata-ansible-nginx
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-nginx.git
+  version: stable
+  trackbranch: stable
+- name: fairdata-ansible-postgresql
+  scm: git
+  src: https://github.com/CSCfi/fairdata-ansible-postgresql.git
   version: stable
   trackbranch: stable
 - name: fairdata-ansible-python

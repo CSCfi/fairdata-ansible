@@ -1,0 +1,3 @@
+---
+- import_playbook: prepare-sso-service.yml
+- import_playbook: deploy-sso-service.yml
