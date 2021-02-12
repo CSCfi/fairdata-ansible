@@ -21,6 +21,9 @@
 - name: fairdata-ansible-metax
   scm: git
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-metax.git
+- name: fairdata-ansible-ida
+  scm: git
+  src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-ida.git
   version: staging
   trackbranch: staging
 - name: fairdata-ansible-mounts
@@ -31,6 +34,11 @@
 - name: fairdata-ansible-nginx
   scm: git
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-nginx.git
+  version: staging
+  trackbranch: staging
+- name: fairdata-ansible-php
+  scm: git
+  src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-php.git
   version: staging
   trackbranch: staging
 - name: fairdata-ansible-python

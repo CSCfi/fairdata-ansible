@@ -21,6 +21,9 @@
 - name: fairdata-ansible-metax
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-metax.git
+- name: fairdata-ansible-ida
+  scm: git
+  src: https://github.com/CSCfi/fairdata-ansible-ida.git
   version: stable
   trackbranch: stable
 - name: fairdata-ansible-mounts
@@ -31,6 +34,11 @@
 - name: fairdata-ansible-nginx
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-nginx.git
+  version: stable
+  trackbranch: stable
+- name: fairdata-ansible-php
+  scm: git
+  src: https://github.com/CSCfi/fairdata-ansible-php.git
   version: stable
   trackbranch: stable
 - name: fairdata-ansible-python
