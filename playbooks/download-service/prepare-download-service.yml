@@ -22,12 +22,12 @@
             write_priv: .*
   - role: fairdata-ansible-nginx
     vars:
-      configure_nginx: '{{ download_configure_nginx | default(False) }}'
+      configure_nginx: '{{ download_configure_nginx | default(True) }}'
       install_shared_ssl_certificate: '{{ download_install_shared_ssl_certificate | default(False) }}'
-      ssl_shared_certificate_src: '{{ download_ssl_shared_certificate_src }}'
-      ssl_shared_certificate_dest: '{{ download_ssl_shared_certificate_dest }}'
-      ssl_shared_certificate_key_src: '{{ download_ssl_shared_certificate_key_src }}'
-      ssl_shared_certificate_key_dest: '{{ download_ssl_shared_certificate_key_dest }}'
+      ssl_shared_certificate_src: '{{ download_ssl_shared_certificate_src | default("") }}'
+      ssl_shared_certificate_dest: '{{ download_ssl_shared_certificate_dest | default("") }}'
+      ssl_shared_certificate_key_src: '{{ download_ssl_shared_certificate_key_src | default("") }}'
+      ssl_shared_certificate_key_dest: '{{ download_ssl_shared_certificate_key_dest | default("") }}'
     when: download_configure_nginx
   - role: fairdata-ansible-python
     vars:
