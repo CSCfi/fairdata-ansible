@@ -28,6 +28,7 @@
       ssl_shared_certificate_dest: '{{ download_ssl_shared_certificate_dest }}'
       ssl_shared_certificate_key_src: '{{ download_ssl_shared_certificate_key_src }}'
       ssl_shared_certificate_key_dest: '{{ download_ssl_shared_certificate_key_dest }}'
+    when: download_configure_nginx
   - role: fairdata-ansible-python
     vars:
       python_executable: '{{ python_python_executable | default("python3") }}'
