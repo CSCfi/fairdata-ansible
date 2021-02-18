@@ -8,6 +8,11 @@
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-download-service.git
   version: staging
   trackbranch: staging
+- name: fairdata-ansible-httpd
+  scm: git
+  src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-httpd.git
+  version: staging
+  trackbranch: staging
 - name: fairdata-ansible-metax
   scm: git
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-metax.git
