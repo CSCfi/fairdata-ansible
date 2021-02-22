@@ -14,6 +14,8 @@
       repo_version: '{{ download_repo_version | default("master") }}'
       repo_src: '{{ download_repo_src }}'
       virtualenv_command: '{{ download_virtualenv_command | default("virtualenv") }}'
+      instance_name: '{{ download_instance_name | default("download") }}'
+      instance_domain: '{{ download_instance_domain | default("fairdata.fi") }}'
       application_environment: '{{ download_application_environment | default("production") }}'
       application_cache_root: '{{ download_application_cache_root | default("/mnt/download-service-cache") }}'
       application_ida_storage_root: '{{ download_application_ida_storage_root | default("/mnt/download-ida-storage") }}'
