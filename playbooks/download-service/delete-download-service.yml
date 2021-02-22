@@ -1,5 +1,5 @@
 ---
-- name: Deploy Fairdata Download Service
+- name: Delete Fairdata Download Service
   hosts: downloadservers
   remote_user: '{{ deployer }}'
   roles:
@@ -7,7 +7,8 @@
     vars:
       prepare_application: False
       deploy_application: True
-      configure_nginx: False
+      configure_nginx: True
+      delete_deployment: True
       repo_install_method: '{{ download_repo_install_method | default("pull") }}'
       repo_deploy_key: '{{ download_repo_deploy_key | default("~/.ssh/id_rsa") }}'
       repo_url: '{{ download_repo_url | default("https://github.com/CSCfi/fairdata-download-service.git") }}'
@@ -16,6 +17,7 @@
       virtualenv_command: '{{ download_virtualenv_command | default("virtualenv") }}'
       instance_name: '{{ download_instance_name | default("download") }}'
       instance_domain: '{{ download_instance_domain | default("fairdata.fi") }}'
+      nginx_server_name: '{{ instance_name }}.{{ instance_domain}}'
       application_environment: '{{ download_application_environment | default("production") }}'
       application_cache_root: '{{ download_application_cache_root | default("/mnt/download-service-cache") }}'
       application_ida_storage_root: '{{ download_application_ida_storage_root | default("/mnt/download-ida-storage") }}'
@@ -27,6 +29,3 @@
       application_service_metax_url: '{{ download_application_service_metax_url | default("https://metax.fairdata.fi/") }}'
       application_service_metax_user: '{{ download_application_service_metax_user }}'
       application_service_metax_pass: '{{ download_application_service_metax_pass }}'
-
-- import_playbook: update-proxyservers.yml
-  when: download_configure_nginx

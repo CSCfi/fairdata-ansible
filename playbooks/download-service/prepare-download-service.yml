@@ -41,12 +41,4 @@
     vars:
       prepare_application: True
       deploy_application: False
-      configure_nginx: '{{ download_configure_nginx | default(True) }}'
-      instance_name: '{{ download_instance_name | default("download") }}'
-      instance_domain: '{{ download_instance_domain | default("fairdata.fi") }}'
-      nginx_server_name: '{{ instance_name }}.{{ instance_domain}}'
-      nginx_public_port: '{{ download_nginx_public_port | default(4430) }}'
-      nginx_internal_port: '{{ download_nginx_internal_port | default(4431) }}'
-      nginx_custom_certificates: '{{ download_nginx_custom_certificates | default(False) }}'
-      nginx_ssl_certificate: '{{ download_nginx_ssl_certificate | default("") }}'
-      nginx_ssl_certificate_key: '{{ download_nginx_ssl_certificate_key | default("") }}'
+      configure_nginx: False
