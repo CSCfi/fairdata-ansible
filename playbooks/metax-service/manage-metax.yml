@@ -1,0 +1,12 @@
+---
+- name: Manage Metax API
+  hosts: metaxappservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-metax
+    vars:
+      prepare_application: False
+      deploy_application: False
+      manage_application: True
+      run_tests: False
+      configure_proxy: False

@@ -1,0 +1,12 @@
+---
+- name: Test Metax API
+  hosts: metaxappservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-metax
+    vars:
+      prepare_application: False
+      deploy_application: False
+      manage_application: False
+      run_tests: True
+      configure_proxy: False
