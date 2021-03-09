@@ -7,5 +7,5 @@
     vars:
       repo_dest_root: '{{ sso_repo_dest_root | default("/opt") }}'
       instance_name: '{{ sso_instance_name | default("sso") }}'
-      instance_domain: '{{ sso_instance_domain | default("fairdata.fi") }}'
+      instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
       delete_deployment: True

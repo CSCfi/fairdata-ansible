@@ -9,6 +9,8 @@
       es_config:
         bootstrap.memory_lock: true
         cluster.name: '{{ elasticsearch_cluster_name | default("test-cluster") }}'
+        network.host: '{{ elasticsearch_bind_host | default("_local_") }}'
+        discovery.seed_hosts: '{{ elasticsearch_bind_host | default("127.0.0.1") }}'
         http.port: '{{ elasticsearch_http_port | default(9200) }}'
         node.data: true
         node.master: true
@@ -23,12 +25,17 @@
     vars:
       nodename: '{{ rabbitmq_nodename | default("rabbit") }}'
       vhosts:
-        - '{{ metax_application_rabbitmq_vhost | default("metax") }}'
+        - '{{ metax_rabbitmq_vhost | default("metax") }}'
+        - '{{ metax_rabbitmq_vhost_ttv | default("ttv") }}'
       users:
-        - user: '{{ metax_application_rabbitmq_user | default("metax") }}'
-          pass: '{{ metax_application_rabbitmq_pass }}'
+        - user: '{{ metax_rabbitmq_user | default("metax") }}'
+          pass: '{{ metax_rabbitmq_password | default("metax") }}'
           permissions:
-          - vhost: '{{ metax_application_rabbitmq_vhost | default("metax") }}'
+          - vhost: '{{ metax_rabbitmq_vhost | default("metax") }}'
+            configure_priv: .*
+            read_priv: .*
+            write_priv: .*
+          - vhost: '{{ metax_rabbitmq_vhost_ttv | default("ttv") }}'
             configure_priv: .*
             read_priv: .*
             write_priv: .*

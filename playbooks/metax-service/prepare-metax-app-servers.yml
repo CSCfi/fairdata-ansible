@@ -13,7 +13,9 @@
       rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
   - role: fairdata-ansible-redis
     vars:
-      bind_address: '{{ metax_redis_bind_address | default("0.0.0.0") }}'
+      bind_address: '{{ metax_redis_bind_address | default("localhost") }}'
+      require_pass: '{{ metax_redis_use_password | default(False) }}'
+      auth_password:  '{{ metax_redis_password | default("pass") }}'
   - role: fairdata-ansible-nginx
     vars:
       install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
@@ -35,6 +37,9 @@
       configure_proxy: '{{ metax_configure_proxy | default(True) }}'
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
       python_virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
+      # Elasticsearch
+      elasticsearch_hosts: '{{ metax_elasticsearch_hosts | default("localhost") }}'
+      elasticsearch_port: '{{ metax_elasticsearch_port | default(9200) }}'
       # OIDC
       oidc_auth_server_url: '{{ metax_oidc_auth_server_url }}'
       oidc_provider_metadata_url: '{{ metax_oidc_provider_metadata_url }}'
