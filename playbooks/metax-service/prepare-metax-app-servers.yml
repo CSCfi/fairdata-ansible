@@ -5,10 +5,10 @@
   roles:
   - role: fairdata-ansible-python
     vars:
-      python_executable: '{{ fairdata_python_python_executable | default("python3") }}'
       install_method: '{{ fairdata_python_install_method | default("none") }}'
       version: '{{ fairdata_python_version | default("3.6.8") }}'
       minor_version: '{{ fairdata_python_minor_version | default("3.6") }}'
+      python_executable: '{{ fairdata_python_python_executable | default("python3") }}'
       rpm_src: '{{ fairdata_python_rpm_src | default("") }}'
       rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
   - role: fairdata-ansible-redis
@@ -16,15 +16,15 @@
       bind_address: '{{ metax_redis_bind_address | default("0.0.0.0") }}'
   - role: fairdata-ansible-nginx
     vars:
-      install_shared_ssl_certificate: '{{ metax_install_shared_ssl_certificate | default(False) }}'
-      ssl_shared_certificate_src: '{{ fairdata_ssl_shared_certificate_src | default("") }}'
-      ssl_shared_certificate_dest: '{{ fairdata_ssl_shared_certificate_dest | default("") }}'
-      ssl_shared_certificate_key_src: '{{ fairdata_ssl_shared_certificate_key_src | default("") }}'
-      ssl_shared_certificate_key_dest: '{{ fairdata_ssl_shared_certificate_key_dest | default("") }}'
+      install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
+      ssl_wildcard_certificate_src: '{{ fairdata_ssl_wildcard_certificate_src | default("") }}'
+      ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'
+      ssl_wildcard_certificate_key_src: '{{ fairdata_ssl_wildcard_certificate_key_src | default("") }}'
+      ssl_wildcard_certificate_key_dest: '{{ fairdata_ssl_wildcard_certificate_key_dest | default("") }}'
     when: metax_configure_proxy | default(True)
   - role: fairdata-ansible-httpd
     vars:
-      install_shared_ssl_certificate: False
+      install_wildcard_ssl_certificate: False
     when: metax_configure_proxy | default(True)
   - role: fairdata-ansible-metax
     vars:

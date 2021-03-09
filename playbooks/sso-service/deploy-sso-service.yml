@@ -12,7 +12,7 @@
       repo_dest_root: '{{ sso_repo_dest_root | default("/opt") }}'
       instance_name: '{{ sso_instance_name | default("sso") }}'
       instance_domain: '{{ sso_instance_domain | default("fairdata.fi") }}'
-      virtualenv_command: '{{ python_virtualenv_command | default("virtualenv") }}'
+      virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
       application_environment: '{{ sso_application_environment | default("PRODUCTION") }}'
       application_debug: '{{ sso_application_debug | default("false") }}'
       application_fdwe_url: '{{ sso_application_fdwe_url | default("") }}'

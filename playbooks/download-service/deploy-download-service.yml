@@ -8,14 +8,13 @@
       prepare_application: False
       deploy_application: True
       configure_nginx: False
+      instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
+      virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
       repo_install_method: '{{ download_repo_install_method | default("pull") }}'
       repo_deploy_key: '{{ download_repo_deploy_key | default("~/.ssh/id_rsa") }}'
       repo_url: '{{ download_repo_url | default("https://github.com/CSCfi/fairdata-download-service.git") }}'
       repo_version: '{{ download_repo_version | default("master") }}'
       repo_src: '{{ download_repo_src }}'
-      virtualenv_command: '{{ download_virtualenv_command | default("virtualenv") }}'
-      instance_name: '{{ download_instance_name | default("download") }}'
-      instance_domain: '{{ download_instance_domain | default("fairdata.fi") }}'
       application_environment: '{{ download_application_environment | default("production") }}'
       application_cache_root: '{{ download_application_cache_root | default("/mnt/download-service-cache") }}'
       application_ida_storage_root: '{{ download_application_ida_storage_root | default("/mnt/download-ida-storage") }}'
@@ -29,4 +28,4 @@
       application_service_metax_pass: '{{ download_application_service_metax_pass }}'
 
 - import_playbook: update-proxyservers.yml
-  when: download_configure_nginx
+  when: download_configure_nginx | default(True)
