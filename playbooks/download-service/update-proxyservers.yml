@@ -9,8 +9,6 @@
       deploy_application: False
       configure_nginx: True
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
-      instance_name: '{{ download_instance_name | default("download") }}'
-      nginx_server_name: '{{ instance_name }}.{{ instance_domain}}'
       nginx_public_port: '{{ download_nginx_public_port | default(4430) }}'
       nginx_internal_port: '{{ download_nginx_internal_port | default(4431) }}'
       nginx_custom_certificates: '{{ download_nginx_custom_certificates | default(False) }}'

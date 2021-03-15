@@ -11,12 +11,12 @@
     vars:
       nodename: '{{ rabbitmq_nodename | default("rabbit") }}'
       vhosts:
-        - '{{ download_application_rabbitmq_vhost | default("download") }}'
+        - '{{ download_rabbitmq_vhost | default("download") }}'
       users:
-        - user: '{{ download_application_rabbitmq_user | default("download") }}'
-          pass: '{{ download_application_rabbitmq_pass }}'
+        - user: '{{ download_rabbitmq_user | default("download") }}'
+          pass: '{{ download_rabbitmq_pass }}'
           permissions:
-          - vhost: '{{ download_application_rabbitmq_vhost | default("download") }}'
+          - vhost: '{{ download_rabbitmq_vhost | default("download") }}'
             configure_priv: .*
             read_priv: .*
             write_priv: .*
