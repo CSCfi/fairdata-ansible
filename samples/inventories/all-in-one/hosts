@@ -1,0 +1,29 @@
+# Create a single host group to install all of the services into
+[aiohosts]
+# Target host - deployer user needs to have ssh access to these hosts with sudo privileges
+my-target.example.com
+
+# Add all-in-one host group as a child of the actual host groups
+
+[downloadservers:children]
+aiohosts
+
+[idaservers:children]
+aiohosts
+
+[metaxdbservers:children]
+aiohosts
+
+[metaxdataservers:children]
+aiohosts
+
+[metaxappservers:children]
+aiohosts
+
+[metaxservers:children]
+metaxdbservers
+metaxdataservers
+metaxappservers
+
+[ssoservers:children]
+aiohosts

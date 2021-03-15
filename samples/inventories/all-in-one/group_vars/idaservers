@@ -1,0 +1,18 @@
+---
+# IDA control variables
+# ~~~~~~~~~~~~~~~~~~~~~
+ida_use_nginx: True
+
+# IDA application variables
+# ~~~~~~~~~~~~~~~~~~~~~~~~~
+ida_metax_base_url: 'https://metax.example.com/'
+
+# IDA Httpd variables
+# ~~~~~~~~~~~~~~~~~~~
+ida_httpd_https_port: 4433
+ida_httpd_https_ida_pas_port: 44433
+
+# IDA Nginx variables
+# ~~~~~~~~~~~~~~~~~~~
+ida_nginx_https_port: 443
+ida_nginx_https_ida_pas_port: 4443
