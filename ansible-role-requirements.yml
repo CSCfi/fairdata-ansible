@@ -8,6 +8,11 @@
   src: https://github.com/CSCfi/fairdata-ansible-download-service.git
   version: stable
   trackbranch: stable
+- name: fairdata-ansible-httpd
+  scm: git
+  src: https://github.com/CSCfi/fairdata-ansible-httpd.git
+  version: stable
+  trackbranch: stable
 - name: fairdata-ansible-metax
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-metax.git
@@ -48,8 +53,3 @@
   src: https://github.com/CSCfi/fairdata-ansible-sso.git
   version: stable
   trackbranch: stable
-- name: ansible-elasticsearch
-  scm: git
-  src: https://github.com/elastic/ansible-elasticsearch.git
-  version: v7.10.2
-  trackbranch: v7.10.2
