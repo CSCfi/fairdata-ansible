@@ -10,7 +10,7 @@
         bootstrap.memory_lock: true
         cluster.name: '{{ elasticsearch_cluster_name | default("test-cluster") }}'
         network.host: '{{ elasticsearch_bind_host | default("_local_") }}'
-        discovery.seed_hosts: '{{ elasticsearch_bind_host | default("127.0.0.1") }}'
+        discovery.seed_hosts: '{{ elasticsearch_bind_host | default("") }}'
         http.port: '{{ elasticsearch_http_port | default(9200) }}'
         node.data: true
         node.master: true
