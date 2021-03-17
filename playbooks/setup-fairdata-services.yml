@@ -1,4 +1,4 @@
 ---
-- import_playbook: prepare-db-servers.yml
 - import_playbook: sso-service/setup-sso-service.yml
+- import_playbook: metax-service/setup-metax-service.yml
 - import_playbook: download-service/setup-download-service.yml

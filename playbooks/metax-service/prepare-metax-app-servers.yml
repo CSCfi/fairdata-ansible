@@ -1,0 +1,55 @@
+---
+- name: Prepare Metax API app servers
+  hosts: metaxappservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-python
+    vars:
+      install_method: '{{ fairdata_python_install_method | default("none") }}'
+      version: '{{ fairdata_python_version | default("3.6.8") }}'
+      minor_version: '{{ fairdata_python_minor_version | default("3.6") }}'
+      python_executable: '{{ fairdata_python_python_executable | default("python3") }}'
+      rpm_src: '{{ fairdata_python_rpm_src | default("") }}'
+      rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
+  - role: fairdata-ansible-redis
+    vars:
+      bind_address: '{{ metax_redis_bind_address | default("localhost") }}'
+      require_pass: '{{ metax_redis_use_password | default(False) }}'
+      auth_password:  '{{ metax_redis_password | default("pass") }}'
+  - role: fairdata-ansible-nginx
+    vars:
+      install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
+      ssl_wildcard_certificate_src: '{{ fairdata_ssl_wildcard_certificate_src | default("") }}'
+      ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'
+      ssl_wildcard_certificate_key_src: '{{ fairdata_ssl_wildcard_certificate_key_src | default("") }}'
+      ssl_wildcard_certificate_key_dest: '{{ fairdata_ssl_wildcard_certificate_key_dest | default("") }}'
+    when: metax_configure_proxy | default(True)
+  - role: fairdata-ansible-httpd
+    vars:
+      install_wildcard_ssl_certificate: False
+    when: metax_configure_proxy | default(True)
+  - role: fairdata-ansible-metax
+    vars:
+      prepare_application: True
+      deploy_application: False
+      manage_application: False
+      run_tests: False
+      configure_proxy: False
+      instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
+      python_virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
+      # Elasticsearch
+      elasticsearch_hosts: '{{ metax_elasticsearch_hosts | default("localhost") }}'
+      elasticsearch_port: '{{ metax_elasticsearch_port | default(9200) }}'
+      # Users
+      application_testaaja_consumer_password: '{{ metax_application_testaaja_consumer_password | default("not-set") }}'
+      application_etsin_consumer_password: '{{ metax_application_etsin_consumer_password | default("not-set") }}'
+      application_ttv_consumer_password: '{{ metax_application_ttv_consumer_password | default("not-set") }}'
+      application_metax_user_password: '{{ metax_application_metax_user_password | default("not-set") }}'
+      application_qvain_user_password: '{{ metax_application_qvain_user_password | default("not-set") }}'
+      application_ida_user_password: '{{ metax_application_ida_user_password | default("not-set") }}'
+      application_tpas_user_password: '{{ metax_application_tpas_user_password | default("not-set") }}'
+      application_etsin_user_password: '{{ metax_application_etsin_user_password | default("not-set") }}'
+      application_fds_user_password: '{{ metax_application_fds_user_password | default("not-set") }}'
+      application_qvain_light_user_password: '{{ metax_application_qvain_light_user_password | default("not-set") }}'
+      application_ttv_user_password: '{{ metax_application_ttv_user_password | default("not-set") }}'
+      application_download_user_password: '{{ metax_application_download_user_password | default("not-set") }}'

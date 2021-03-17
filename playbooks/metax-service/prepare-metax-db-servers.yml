@@ -1,0 +1,26 @@
+---
+- name: Prepare Metax API DB servers
+  hosts: metaxdbservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-postgresql
+    vars:
+      data_directory: '{{ postgres_data_directory | default("/var/lib/pgsql/9.6/data") }}'
+      listen_addresses: '{{ postgres_listen_addresses | default("localhost") }}'
+      users:
+      - name: '{{ metax_database_user | default("metax") }}'
+        password: '{{ metax_database_password | default("metax") }}'
+      databases:
+      - name: '{{ metax_database_name | default("metax") }}'
+        owner: '{{ metax_database_user | default("metax") }}'
+      allowed_connections:
+      - type: 'host'
+        database: '{{ metax_database_name | default("metax") }}'
+        user: '{{ metax_database_user | default("metax") }}'
+        address: '{{ metax_database_allowed_subnet | default("127.0.0.1/32") }}'
+        method: 'md5'
+      - type: 'host'
+        database: '{{ metax_database_test_name | default("test_metax") }}'
+        user: '{{ metax_database_user | default("metax") }}'
+        address: '{{ metax_database_allowed_subnet | default("127.0.0.1/32") }}'
+        method: 'md5'

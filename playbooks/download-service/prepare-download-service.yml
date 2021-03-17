@@ -11,39 +11,34 @@
     vars:
       nodename: '{{ rabbitmq_nodename | default("rabbit") }}'
       vhosts:
-        - '{{ download_application_rabbitmq_vhost | default("download") }}'
+        - '{{ download_rabbitmq_vhost | default("download") }}'
       users:
-        - user: '{{ download_application_rabbitmq_user | default("download") }}'
-          pass: '{{ download_application_rabbitmq_pass }}'
+        - user: '{{ download_rabbitmq_user | default("download") }}'
+          pass: '{{ download_rabbitmq_pass }}'
           permissions:
-          - vhost: '{{ download_application_rabbitmq_vhost | default("download") }}'
+          - vhost: '{{ download_rabbitmq_vhost | default("download") }}'
             configure_priv: .*
             read_priv: .*
             write_priv: .*
   - role: fairdata-ansible-nginx
     vars:
-      configure_nginx: '{{ download_configure_nginx | default(False) }}'
-      install_shared_ssl_certificate: '{{ download_install_shared_ssl_certificate | default(False) }}'
-      ssl_shared_certificate_src: '{{ download_ssl_shared_certificate_src }}'
-      ssl_shared_certificate_dest: '{{ download_ssl_shared_certificate_dest }}'
-      ssl_shared_certificate_key_src: '{{ download_ssl_shared_certificate_key_src }}'
-      ssl_shared_certificate_key_dest: '{{ download_ssl_shared_certificate_key_dest }}'
+      configure_nginx: '{{ download_configure_nginx | default(True) }}'
+      install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
+      ssl_wildcard_certificate_src: '{{ fairdata_ssl_wildcard_certificate_src | default("") }}'
+      ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'
+      ssl_wildcard_certificate_key_src: '{{ fairdata_ssl_wildcard_certificate_key_src | default("") }}'
+      ssl_wildcard_certificate_key_dest: '{{ fairdata_ssl_wildcard_certificate_key_dest | default("") }}'
+    when: download_configure_nginx | default(True)
   - role: fairdata-ansible-python
     vars:
-      python_executable: '{{ python_python_executable | default("python3") }}'
-      install_method: '{{ python_install_method | default("none") }}'
-      version: '{{ python_version | default("3.6.8") }}'
-      minor_version: '{{ python_minor_version | default("3.6") }}'
-      rpm_src: '{{ python_rpm_src | default("") }}'
-      rpm_dest: '{{ python_rpm_dest | default("") }}'
+      install_method: '{{ fairdata_python_install_method | default("none") }}'
+      version: '{{ fairdata_python_version | default("3.6.8") }}'
+      minor_version: '{{ fairdata_python_minor_version | default("3.6") }}'
+      python_executable: '{{ fairdata_python_python_executable | default("python3") }}'
+      rpm_src: '{{ fairdata_python_rpm_src | default("") }}'
+      rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
   - role: fairdata-ansible-download-service
     vars:
       prepare_application: True
       deploy_application: False
-      configure_nginx: '{{ download_configure_nginx | default(True) }}'
-      host: '{{ download_host | default("0.0.0.0") }}'
-      nginx_public_port: '{{ download_nginx_public_port | default(4430) }}'
-      nginx_internal_port: '{{ download_nginx_internal_port | default(4431) }}'
-      nginx_custom_certificates: '{{ download_nginx_custom_certificates | default(False) }}'
-      nginx_ssl_certificate: '{{ download_nginx_ssl_certificate | default("") }}'
-      nginx_ssl_certificate_key: '{{ download_nginx_ssl_certificate_key | default("") }}'
+      configure_nginx: False

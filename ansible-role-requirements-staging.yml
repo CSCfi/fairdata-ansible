@@ -1,6 +1,21 @@
+- name: ansible-elasticsearch
+  scm: git
+  src: https://github.com/elastic/ansible-elasticsearch.git
+  version: v7.10.2
+  trackbranch: v7.10.2
 - name: fairdata-ansible-download-service
   scm: git
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-download-service.git
+  version: staging
+  trackbranch: staging
+- name: fairdata-ansible-httpd
+  scm: git
+  src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-httpd.git
+  version: staging
+  trackbranch: staging
+- name: fairdata-ansible-metax
+  scm: git
+  src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-metax.git
   version: staging
   trackbranch: staging
 - name: fairdata-ansible-mounts
@@ -26,6 +41,11 @@
 - name: fairdata-ansible-rabbitmq
   scm: git
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-rabbitmq.git
+  version: staging
+  trackbranch: staging
+- name: fairdata-ansible-redis
+  scm: git
+  src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-redis.git
   version: staging
   trackbranch: staging
 - name: fairdata-ansible-sso

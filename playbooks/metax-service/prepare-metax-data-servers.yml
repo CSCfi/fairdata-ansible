@@ -1,0 +1,41 @@
+---
+- name: Prepare Metax API dataservers
+  hosts: metaxdataservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: ansible-elasticsearch
+    vars:
+      es_api_port: '{{ elasticsearch_http_port | default(9200) }}'
+      es_config:
+        bootstrap.memory_lock: true
+        cluster.name: '{{ elasticsearch_cluster_name | default("test-cluster") }}'
+        network.host: '{{ elasticsearch_bind_host | default("_local_") }}'
+        discovery.seed_hosts: '{{ elasticsearch_bind_host | default("127.0.0.1") }}'
+        http.port: '{{ elasticsearch_http_port | default(9200) }}'
+        node.data: true
+        node.master: true
+        node.name: '{{ elasticsearch_node_name | default("node1") }}'
+        transport.port: '{{ elasticsearch_transport_port | default(9300) }}'
+      es_heap_size: '{{ elasticsearch_heap_size | default("256m")}}'
+      es_use_repository: true
+      es_version: '{{ elasticsearch_version | default("7.8.0") }}'
+      es_version_lock: true
+      es_xpack_features: []
+  - role: fairdata-ansible-rabbitmq
+    vars:
+      nodename: '{{ rabbitmq_nodename | default("rabbit") }}'
+      vhosts:
+        - '{{ metax_rabbitmq_vhost | default("metax") }}'
+        - '{{ metax_rabbitmq_vhost_ttv | default("ttv") }}'
+      users:
+        - user: '{{ metax_rabbitmq_user | default("metax") }}'
+          pass: '{{ metax_rabbitmq_password | default("metax") }}'
+          permissions:
+          - vhost: '{{ metax_rabbitmq_vhost | default("metax") }}'
+            configure_priv: .*
+            read_priv: .*
+            write_priv: .*
+          - vhost: '{{ metax_rabbitmq_vhost_ttv | default("ttv") }}'
+            configure_priv: .*
+            read_priv: .*
+            write_priv: .*
