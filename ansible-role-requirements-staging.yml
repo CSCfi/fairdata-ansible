@@ -3,6 +3,11 @@
   src: https://github.com/elastic/ansible-elasticsearch.git
   version: v7.10.2
   trackbranch: v7.10.2
+- name: anxs.postgresql
+  scm: git
+  src: https://github.com/ANXS/postgresql
+  version: v1.12.0
+  trackbranch: v1.12.0
 - name: fairdata-ansible-download-service
   scm: git
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-download-service.git
@@ -26,11 +31,6 @@
 - name: fairdata-ansible-nginx
   scm: git
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-nginx.git
-  version: staging
-  trackbranch: staging
-- name: fairdata-ansible-postgresql
-  scm: git
-  src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-postgresql.git
   version: staging
   trackbranch: staging
 - name: fairdata-ansible-python
