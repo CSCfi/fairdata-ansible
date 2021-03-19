@@ -1,0 +1,15 @@
+---
+- name: Prepare Etsin Finder web servers
+  hosts: etsinfinderserver
+  remote_user: '{{ deployer }}'
+  roles:
+  # - role: fairdata-ansible-python
+  #   become: yes
+  #   vars:
+  #     wanted_version: '{{ fairdata_python_version | default("3.6.8") }}'
+  #     wanted_minor_version: '{{ fairdata_python_minor_version | default("3.6") }}'
+  - role: fairdata-ansible-etsin-qvain
+    vars:
+      prepare_application: True
+      deploy_application: True
+      
