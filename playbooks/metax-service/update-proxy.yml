@@ -19,3 +19,6 @@
       oidc_client_secret: '{{ metax_oidc_client_secret }}'
       oidc_crypto_passphrase: '{{ metax_oidc_crypto_passphrase }}'
       oidc_id_token_iat_slack: '{{ metax_oidc_id_token_iat_slack }}'
+      # Elasticsearch
+      elasticsearch_hosts: '{{ metax_elasticsearch_hosts | default("localhost") }}'
+      elasticsearch_port: '{{ metax_elasticsearch_port | default(9200) }}'
