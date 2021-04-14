@@ -1,15 +1,25 @@
 ---
-- name: Prepare Etsin Finder web servers
-  hosts: etsinfinderserver
+- name: Prepare Etsin Qvain app servers
+  hosts: etsinqvainservers
   remote_user: '{{ deployer }}'
   roles:
-  # - role: fairdata-ansible-python
-  #   become: yes
-  #   vars:
-  #     wanted_version: '{{ fairdata_python_version | default("3.6.8") }}'
-  #     wanted_minor_version: '{{ fairdata_python_minor_version | default("3.6") }}'
+  - role: fairdata-ansible-python
+      vars:
+        install_method: '{{ fairdata_python_install_method | default("none") }}'
+        version: '{{ fairdata_python_version | default("3.6.8") }}'
+        minor_version: '{{ fairdata_python_minor_version | default("3.6") }}'
+        python_executable: '{{ fairdata_python_python_executable | default("python3") }}'
+        rpm_src: '{{ fairdata_python_rpm_src | default("") }}'
+        rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
+    - role: fairdata-ansible-nginx
+      vars:
+        install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
+        ssl_wildcard_certificate_src: '{{ fairdata_ssl_wildcard_certificate_src | default("") }}'
+        ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'
+        ssl_wildcard_certificate_key_src: '{{ fairdata_ssl_wildcard_certificate_key_src | default("") }}'
+        ssl_wildcard_certificate_key_dest: '{{ fairdata_ssl_wildcard_certificate_key_dest | default("") }}'
+      when: metax_configure_proxy | default(True)
   - role: fairdata-ansible-etsin-qvain
     vars:
       prepare_application: True
       deploy_application: True
-      
