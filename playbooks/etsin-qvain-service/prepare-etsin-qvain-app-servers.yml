@@ -1,6 +1,6 @@
 ---
 - name: Prepare Etsin Qvain app servers
-  hosts: etsinqvainservers
+  hosts: etsinqvainappservers
   remote_user: '{{ deployer }}'
   roles:
   - role: fairdata-ansible-python
