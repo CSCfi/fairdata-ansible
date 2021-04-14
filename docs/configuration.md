@@ -29,21 +29,25 @@ Below are instructions on how to build inventories. See [samples](/samples/inven
 
 The playbooks use the following host groups as described below.
 
-| Name             | Parent       | Description                                                   |
-|:---------------- |:------------ |:------------------------------------------------------------- |
-| downloadservers  |              | Servers hosting Download service                              |
-| idaservers       |              | Servers hosting IDA service                                   |
-| idaappservers    | idaservers   | Servers hosting IDA application                               |
-| idadbservers     | idaservers   | Servers hosting IDA database                                  |
-| idadataservers   | idaservers   | Servers hosting IDA rabbitmq server                           |
-| idacacheservers  | idaservers   | Servers hosting IDA redis                                     |
-| metaxservers     |              | Servers hosting Metax services                                |
-| metaxappservers  | metaxservers | Servers hosting Metax application services                    |
-| metaxdbservers   | metaxservers | Servers hosting Metax database                                |
-| metaxdataservers | metaxservers | Servers hosting Metax elasticsearch and rabbitmq services     |
-| ssoservers       |              | Servers hosting SSO service                                   |
-| sso1servers      | ssoservers   | Servers hosting SSO 1 instances                               |
-| sso2servers      | ssoservers   | Servers hosting SSO 2 instances                               |
+| Name                  | Parent            | Description                                                   |
+|:----------------      |:------------      |:------------------------------------------------------------- |
+| downloadservers       |                   | Servers hosting Download service                              |
+| etsinqvainservers     |                   | Servers hosting the Etsin-Qvain services                      |
+| etsinqvainappservers  | etsinqvainservers | Servers hosting the Etsin-Qvain application services          |
+| etsinqvaindataservers | etsinqvainservers | Servers hosting Etsin-Qvain elasticsearch & rabbitmq-consumer |
+| idaservers            |                   | Servers hosting IDA service                                   |
+| idaappservers         | idaservers        | Servers hosting IDA application                               |
+| idadbservers          | idaservers        | Servers hosting IDA database                                  |
+| idadataservers        | idaservers        | Servers hosting IDA rabbitmq server                           |
+| idacacheservers       | idaservers        | Servers hosting IDA redis                                     |
+| metaxservers          |                   | Servers hosting Metax services                                |
+| metaxappservers       | metaxservers      | Servers hosting Metax application services                    |
+| metaxdbservers        | metaxservers      | Servers hosting Metax database                                |
+| metaxdataservers      | metaxservers      | Servers hosting Metax elasticsearch and rabbitmq services     |
+| ssoservers            |                   | Servers hosting SSO service                                   |
+| sso1servers           | ssoservers        | Servers hosting SSO 1 instances                               |
+| sso2servers           | ssoservers        | Servers hosting SSO 2 instances                               |
+
 
 ### group variables
 
