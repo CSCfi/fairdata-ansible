@@ -18,7 +18,7 @@
       ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'
       ssl_wildcard_certificate_key_src: '{{ fairdata_ssl_wildcard_certificate_key_src | default("") }}'
       ssl_wildcard_certificate_key_dest: '{{ fairdata_ssl_wildcard_certificate_key_dest | default("") }}'
-    when: metax_configure_proxy | default(True)
+    when: etsin_qvain_configure_proxy | default(True)
   - role: fairdata-ansible-etsin-qvain
     vars:
       prepare_application: True
