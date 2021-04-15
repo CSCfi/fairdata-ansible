@@ -1,0 +1,13 @@
+---
+- name: Deploy Etsin-Qvain
+  hosts: etsinqvainappservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-etsin-qvain
+    vars:
+      prepare_application: False
+      deploy_application: True
+      manage_application: False
+      run_tests: False
+      configure_proxy: False
+      instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'

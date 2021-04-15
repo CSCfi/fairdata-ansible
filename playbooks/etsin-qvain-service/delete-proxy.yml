@@ -1,0 +1,14 @@
+---
+- name: Delete Etsin-Qvain proxy
+  hosts: etsinqvainappservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-etsin-qvain
+    vars:
+      prepare_application: False
+      deploy_application: False
+      manage_application: False
+      run_tests: False
+      configure_proxy: False
+      delete_proxy: True
+      instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
