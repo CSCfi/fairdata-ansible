@@ -22,7 +22,7 @@
   - role: fairdata-ansible-etsin-qvain
     vars:
       prepare_application: True
-      deploy_application: False
+      deploy_application: True
       run_tests: False
       configure_proxy: False
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
