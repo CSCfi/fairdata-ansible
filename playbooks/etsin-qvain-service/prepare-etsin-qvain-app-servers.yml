@@ -11,14 +11,14 @@
       python_executable: '{{ fairdata_python_python_executable | default("python3") }}'
       rpm_src: '{{ fairdata_python_rpm_src | default("") }}'
       rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
-#  - role: fairdata-ansible-nginx
-#    vars:
-#      install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
-#      ssl_wildcard_certificate_src: '{{ fairdata_ssl_wildcard_certificate_src | default("") }}'
-#      ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'
-#      ssl_wildcard_certificate_key_src: '{{ fairdata_ssl_wildcard_certificate_key_src | default("") }}'
-#      ssl_wildcard_certificate_key_dest: '{{ fairdata_ssl_wildcard_certificate_key_dest | default("") }}'
-#    when: etsin_qvain_configure_proxy | default(True)
+  - role: fairdata-ansible-nginx
+    vars:
+      install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
+      ssl_wildcard_certificate_src: '{{ fairdata_ssl_wildcard_certificate_src | default("") }}'
+      ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'
+      ssl_wildcard_certificate_key_src: '{{ fairdata_ssl_wildcard_certificate_key_src | default("") }}'
+      ssl_wildcard_certificate_key_dest: '{{ fairdata_ssl_wildcard_certificate_key_dest | default("") }}'
+    when: etsin_qvain_configure_proxy | default(True)
   - role: fairdata-ansible-etsin-qvain
     vars:
       prepare_application: True
