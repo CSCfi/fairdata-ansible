@@ -24,6 +24,6 @@
       prepare_application: True
       deploy_application: True
       run_tests: False
-      configure_proxy: False
+      configure_proxy: True
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
       python_virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
