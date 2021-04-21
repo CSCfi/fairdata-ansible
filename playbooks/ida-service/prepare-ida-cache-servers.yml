@@ -1,0 +1,8 @@
+---
+- name: Prepare Fairdata IDA Cache Servers
+  hosts: idacacheservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-redis
+    vars:
+      bind_address: '{{ ida_redis_bind_address | default("0.0.0.0") }}'

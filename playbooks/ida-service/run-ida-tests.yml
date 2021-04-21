@@ -1,0 +1,11 @@
+---
+- name: Run Fairdata IDA Tests
+  hosts: idaappservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-ida
+    vars:
+      prepare_application: False
+      deploy_application: False
+      update_proxy: False
+      run_tests: True

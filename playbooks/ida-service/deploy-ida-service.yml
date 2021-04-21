@@ -1,6 +1,6 @@
 ---
 - name: Deploy Fairdata IDA Service
-  hosts: idaservers
+  hosts: idaappservers
   remote_user: '{{ deployer }}'
   roles:
   - role: fairdata-ansible-ida
@@ -17,6 +17,13 @@
       rabbitmq_vhost: '{{ ida_rabbitmq_vhost | default("ida_vhost") }}'
       rabbitmq_worker_user: '{{ ida_rabbitmq_worker_user | default("worker") }}'
       rabbitmq_worker_pass: '{{ ida_rabbitmq_worker_pass | default("test") }}'
+
+      # Repo variables
+      # ~~~~~~~~~~~~~~~~~~~~~~~
+      repo_ida_url: '{{ ida_repo_ida_url | default("https://github.com/CSCfi/ida2") }}'
+      repo_ida_version: '{{ ida_repo_ida_version | default("master") }}'
+      repo_ida_tools_url: '{{ ida_repo_ida_tools_url | default("https://github.com/CSCfi/ida2-command-line-tools") }}'
+      repo_ida_tools_version: '{{ ida_repo_ida_tools_version | default("master") }}'
 
       # Configuration variables
       # ~~~~~~~~~~~~~~~~~~~~~~~
