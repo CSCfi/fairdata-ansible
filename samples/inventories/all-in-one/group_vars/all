@@ -1,0 +1,49 @@
+---
+# Miscellaneous variables
+# ~~~~~~~~~~~~~~~~~~~~~~~
+deployer: 'ansible'
+repo_source: '/repos'
+
+# Domain specific variables
+# ~~~~~~~~~~~~~~~~~~~~~~~~~
+fairdata_domain: 'example.com'
+fairdata_host_overrides:
+  - fqdn: 'ida.example.com'
+    address: '127.0.0.1'
+  - fqdn: 'metax.example.com'
+    address: '127.0.0.1'
+  - fqdn: 'sso.example.com'
+    address: '127.0.0.1'
+  - fqdn: 'download.example.com'
+    address: '127.0.0.1'
+
+# Python specific variables
+# ~~~~~~~~~~~~~~~~~~~~~~~~~
+fairdata_python_install_method: 'dist'
+fairdata_python_rpm_src: '{{ repo_source }}/fairdata-python3-1.0.3-20200929.x86_64.rpm'
+fairdata_python_rpm_dest: '/opt/fairdata-python3-1.0.3-20200929.x86_64.rpm'
+fairdata_python_virtualenv_command: '/opt/fairdata/python3/bin/virtualenv'
+
+# TLS variables
+# ~~~~~~~~~~~~~
+fairdata_install_ssl_wildcard_certificate: True
+fairdata_ssl_wildcard_certificate_src: '{{ repo_source }}/example.com.crt.pem'
+fairdata_ssl_wildcard_certificate_dest: '/etc/pki/tls/certs/example.com.pem'
+fairdata_ssl_wildcard_certificate_key_src: '{{ repo_source }}/example.com.key.pem'
+fairdata_ssl_wildcard_certificate_key_dest: '/etc/pki/tls/private/example.com.key.pem'
+
+# Metax API users
+# ~~~~~~~~~~~~~~~
+metax_application_testaaja_consumer_password: 'secret'
+metax_application_etsin_consumer_password: 'secret'
+metax_application_ttv_consumer_password: 'secret'
+
+metax_application_metax_user_password: 'secret'
+metax_application_qvain_user_password: 'secret'
+metax_application_ida_user_password: 'secret'
+metax_application_tpas_user_password: 'secret'
+metax_application_etsin_user_password: 'secret'
+metax_application_fds_user_password: 'secret'
+metax_application_qvain_light_user_password: 'secret'
+metax_application_ttv_user_password: 'secret'
+metax_application_download_user_password: 'secret'

@@ -1,0 +1,16 @@
+---
+# RabbitMQ variables
+# ~~~~~~~~~~~~~~~~~~
+download_rabbitmq_pass: 'secret'
+
+# Directory variables
+# ~~~~~~~~~~~~~~~~~~~~~
+download_directory_cache_root: '/var/lib/download-service-cache'
+
+# Application specific variables
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+download_application_service_metax_url: 'https://metax.example.com/'
+download_application_service_metax_user: 'download'
+download_application_service_metax_pass: 'secret'
+download_application_environment: 'development'
+download_application_jwt_secret: 'secret'

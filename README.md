@@ -16,6 +16,12 @@ Ansible role requirements can be installed with ansible-galaxy by running instal
 ansible-galaxy install --force -r ansible-role-requirements.yml
 ```
 
+Role requirements can also be installed from private source control (provided that you have access) by running:
+
+```
+ansible-galaxy install --force -r ansible-role-requirements.yml
+```
+
 ## Configuration
 
 See [configuration instructions](/docs/configuration.md).
@@ -23,3 +29,7 @@ See [configuration instructions](/docs/configuration.md).
 ## Deployment
 
 See [deployment instructions](/docs/deployment.md).
+
+## Docker
+
+See [Docker use instructions](/docs/docker.md).

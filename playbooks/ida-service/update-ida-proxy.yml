@@ -1,0 +1,18 @@
+---
+- name: Update Fairdata IDA Proxy
+  hosts: idaservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-ida
+    vars:
+      prepare_application: False
+      deploy_application: False
+      update_proxy: True
+      instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
+      instance_name: '{{ ida_instance_name | default("ida") }}'
+      httpd_http_port: '{{ ida_httpd_http_port | default(80) }}'
+      httpd_https_port: '{{ ida_httpd_https_port | default(443) }}'
+      httpd_https_ida_pas_port: '{{ ida_httpd_https_ida_pas_port | default(4443) }}'
+      use_nginx: '{{ ida_use_nginx | default(False) }}'
+      nginx_https_port: '{{ ida_nginx_https_port | default(443) }}'
+      nginx_https_ida_pas_port: '{{ ida_nginx_https_ida_pas_port | default(4443) }}'

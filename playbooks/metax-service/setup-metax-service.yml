@@ -3,6 +3,7 @@
 - import_playbook: prepare-metax-data-servers.yml
 - import_playbook: prepare-metax-app-servers.yml
 - import_playbook: deploy-metax.yml
+- import_playbook: update-proxy.yml
 - import_playbook: manage-metax.yml
 - import_playbook: test-metax.yml
   when: metax_run_tests | default(True)
