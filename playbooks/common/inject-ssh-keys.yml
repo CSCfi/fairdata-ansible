@@ -1,0 +1,19 @@
+---
+- name: Inject deployer SSH keys
+  hosts: all
+  remote_user: '{{ deployer }}'
+  tasks:
+  - name: Ensure deployer ssh key is injected for deployer user
+    copy:
+      src: '{{ deploy_key_source }}'
+      dest: '.ssh/id_rsa'
+      owner: '{{ deployer }}'
+      mode: '0600'
+    become: yes
+
+  - name: Ensure deployer ssh key is injected for root user
+    copy:
+      src: '{{ deploy_key_source }}'
+      dest: '/root/.ssh/id_rsa'
+      mode: '0600'
+    become: yes
