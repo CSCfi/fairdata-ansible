@@ -7,6 +7,7 @@
     vars:
       postgresql_version: 9.6
       postgresql_data_directory: '{{ postgres_data_directory | default("/var/lib/pgsql/9.6/data") }}'
+      postgresql_listen_addresses: '{{ ida_postgresql_listen_addresses | default(["localhost"]) }}'
       postgresql_pg_hba_custom:
       - type: '{{ ida_database_type | default("host") }}'
         database: 'all'
