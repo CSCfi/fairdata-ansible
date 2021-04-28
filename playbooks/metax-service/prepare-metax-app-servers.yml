@@ -14,6 +14,7 @@
   - role: fairdata-ansible-redis
     vars:
       bind_address: '{{ metax_redis_bind_address | default("localhost") }}'
+      bind_port: '{{ metax_redis_bind_port | default(6379) }}'
       require_pass: '{{ metax_redis_use_password | default(False) }}'
       auth_password:  '{{ metax_redis_password | default("pass") }}'
   - role: fairdata-ansible-nginx

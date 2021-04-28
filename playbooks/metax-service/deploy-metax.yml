@@ -24,6 +24,8 @@
       elasticsearch_hosts: '{{ metax_elasticsearch_hosts | default("localhost") }}'
       elasticsearch_port: '{{ metax_elasticsearch_port | default(9200) }}'
       # Redis
+      redis_host: '{{ metax_redis_bind_address | default("localhost") }}'
+      redis_port: '{{ metax_redis_bind_port | default(6379) }}'
       redis_password: '{{ metax_redis_password | default("metax") }}'
       redis_use_password: '{{ metax_redis_use_password | default("false") }}'
       # Rabbitmq
