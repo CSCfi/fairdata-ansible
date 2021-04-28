@@ -38,19 +38,3 @@
       configure_proxy: False
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
       python_virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
-      # Elasticsearch
-      elasticsearch_hosts: '{{ metax_elasticsearch_hosts | default("localhost") }}'
-      elasticsearch_port: '{{ metax_elasticsearch_port | default(9200) }}'
-      # Users
-      application_testaaja_consumer_password: '{{ metax_application_testaaja_consumer_password | default("not-set") }}'
-      application_etsin_consumer_password: '{{ metax_application_etsin_consumer_password | default("not-set") }}'
-      application_ttv_consumer_password: '{{ metax_application_ttv_consumer_password | default("not-set") }}'
-      application_metax_user_password: '{{ metax_application_metax_user_password | default("not-set") }}'
-      application_qvain_user_password: '{{ metax_application_qvain_user_password | default("not-set") }}'
-      application_ida_user_password: '{{ metax_application_ida_user_password | default("not-set") }}'
-      application_tpas_user_password: '{{ metax_application_tpas_user_password | default("not-set") }}'
-      application_etsin_user_password: '{{ metax_application_etsin_user_password | default("not-set") }}'
-      application_fds_user_password: '{{ metax_application_fds_user_password | default("not-set") }}'
-      application_qvain_light_user_password: '{{ metax_application_qvain_light_user_password | default("not-set") }}'
-      application_ttv_user_password: '{{ metax_application_ttv_user_password | default("not-set") }}'
-      application_download_user_password: '{{ metax_application_download_user_password | default("not-set") }}'

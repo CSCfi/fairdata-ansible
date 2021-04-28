@@ -36,6 +36,7 @@
       rabbitmq_user: '{{ metax_rabbitmq_user | default("metax") }}'
       rabbitmq_password: '{{ metax_rabbitmq_password | default("metax") }}'
       # Application
+      application_debug: '{{ metax_application_debug | default("False") }}'
       application_django_env: '{{ metax_application_django_env | default("test") }}'
       application_django_secret_key: '{{ metax_application_django_secret_key | default("secret") }}'
       # Auth
