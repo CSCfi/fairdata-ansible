@@ -31,3 +31,4 @@
       # Application variables
       # ~~~~~~~~~~~~~~~~~~~~~
       sso_key: '{{ etsin_qvain_sso_key | default("secret") }}'
+      metax_qvain_api_password: '{{ metax_qvain_api_password | default("not_used") }}'
