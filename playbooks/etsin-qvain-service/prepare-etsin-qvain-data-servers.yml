@@ -1,0 +1,13 @@
+---
+- name: Prepare Etsin Qvain app servers
+  hosts: etsinqvaindataservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-python
+    vars:
+      install_method: '{{ fairdata_python_install_method | default("none") }}'
+      version: '{{ fairdata_python_version | default("3.6.8") }}'
+      minor_version: '{{ fairdata_python_minor_version | default("3.6") }}'
+      python_executable: '{{ fairdata_python_python_executable | default("python3") }}'
+      rpm_src: '{{ fairdata_python_rpm_src | default("") }}'
+      rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
