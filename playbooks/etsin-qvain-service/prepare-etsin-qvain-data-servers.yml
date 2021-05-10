@@ -1,5 +1,5 @@
 ---
-- name: Prepare Etsin Qvain app servers
+- name: Prepare Etsin Qvain data servers
   hosts: etsinqvaindataservers
   remote_user: '{{ deployer }}'
   roles:
