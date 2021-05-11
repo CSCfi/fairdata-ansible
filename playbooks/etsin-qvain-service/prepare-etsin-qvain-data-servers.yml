@@ -3,37 +3,37 @@
   hosts: etsinqvaindataservers
   remote_user: '{{ deployer }}'
   roles:
-  - role: fairdata-ansible-python
-    vars:
-      install_method: '{{ fairdata_python_install_method | default("none") }}'
-      version: '{{ fairdata_python_version | default("3.6.8") }}'
-      minor_version: '{{ fairdata_python_minor_version | default("3.6") }}'
-      python_executable: '{{ fairdata_python_python_executable | default("python3") }}'
-      rpm_src: '{{ fairdata_python_rpm_src | default("") }}'
-      rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
-  - role: ansible-elasticsearch
-    vars:
-      es_api_port: '{{ elasticsearch_http_port | default(9201) }}'
-      es_config:
-        bootstrap.memory_lock: true
-        cluster.name: '{{ elasticsearch_cluster_name | default("etsin-es-cluster") }}'
-        network.host: '{{ elasticsearch_bind_host | default("_local_") }}'
-        discovery.seed_hosts: '{{ elasticsearch_bind_host | default("") }}'
-        http.port: '{{ elasticsearch_http_port | default(9201) }}'
-        node.data: true
-        node.master: true
-        node.name: '{{ elasticsearch_node_name | default("node1") }}'
-        transport.port: '{{ elasticsearch_transport_port | default(9301) }}'
-      es_heap_size: '{{ elasticsearch_heap_size | default("256m")}}'
-      es_use_repository: true
-      es_version: '{{ elasticsearch_version | default("7.8.0") }}'
-      es_version_lock: true
-      es_xpack_features: []
+#  - role: fairdata-ansible-python
+#    vars:
+#      install_method: '{{ fairdata_python_install_method | default("none") }}'
+#      version: '{{ fairdata_python_version | default("3.6.8") }}'
+#      minor_version: '{{ fairdata_python_minor_version | default("3.6") }}'
+#      python_executable: '{{ fairdata_python_python_executable | default("python3") }}'
+#      rpm_src: '{{ fairdata_python_rpm_src | default("") }}'
+#      rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
+#  - role: ansible-elasticsearch
+#    vars:
+#      es_api_port: '{{ elasticsearch_http_port | default(9201) }}'
+#      es_config:
+#        bootstrap.memory_lock: true
+#        cluster.name: '{{ elasticsearch_cluster_name | default("etsin-es-cluster") }}'
+#        network.host: '{{ elasticsearch_bind_host | default("_local_") }}'
+#        discovery.seed_hosts: '{{ elasticsearch_bind_host | default("") }}'
+#        http.port: '{{ elasticsearch_http_port | default(9201) }}'
+#        node.data: true
+#        node.master: true
+#        node.name: '{{ elasticsearch_node_name | default("node1") }}'
+#        transport.port: '{{ elasticsearch_transport_port | default(9301) }}'
+#      es_heap_size: '{{ elasticsearch_heap_size | default("256m")}}'
+#      es_use_repository: true
+#      es_version: '{{ elasticsearch_version | default("7.8.0") }}'
+#      es_version_lock: true
+#      es_xpack_features: []
   - role: fairdata-ansible-etsin-qvain
     vars:
       deploy_app_server: False
       deploy_data_server: True
-      prepare_application: False
+      prepare_application: True
       deploy_application: False
       run_tests: False
       configure_proxy: False
