@@ -34,7 +34,7 @@
       deploy_app_server: False
       deploy_data_server: True
       prepare_application: True
-      deploy_application: False
+      deploy_application: True
       run_tests: False
       configure_proxy: False
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
