@@ -31,6 +31,8 @@
       es_xpack_features: []
   - role: fairdata-ansible-etsin-qvain
     vars:
+      deploy_app_server: False
+      deploy_data_server: True
       prepare_application: False
       deploy_application: False
       run_tests: False
