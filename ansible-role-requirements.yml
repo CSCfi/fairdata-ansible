@@ -21,6 +21,8 @@
 - name: fairdata-ansible-metax
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-metax.git
+  version: stable
+  trackbranch: stable
 - name: fairdata-ansible-ida
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-ida.git

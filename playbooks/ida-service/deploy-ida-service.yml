@@ -1,25 +1,56 @@
 ---
 - name: Deploy Fairdata IDA Service
-  hosts: idaservers
+  hosts: idaappservers
   remote_user: '{{ deployer }}'
   roles:
   - role: fairdata-ansible-ida
     vars:
+      # Control variables
+      # ~~~~~~~~~~~~~~~~~
       prepare_application: False
       deploy_application: True
       update_proxy: False
 
+      # Instance variables
+      # ~~~~~~~~~~~~~~~~~~
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
       instance_name: '{{ ida_instance_name | default("ida") }}'
 
+      # Python variables
+      # ~~~~~~~~~~~~~~~~
       python_virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
 
-      rabbitmq_vhost: '{{ ida_rabbitmq_vhost | default("ida_vhost") }}'
+      # Rabbitmq variables
+      # ~~~~~~~~~~~~~~~~~~
+      rabbitmq_host: '{{ ida_rabbitmq_host | default("localhost") }}'
+      rabbitmq_port: '{{ ida_rabbitmq_port | default(5672) }}'
+      rabbitmq_vhost: '{{ ida_rabbitmq_vhost | default("ida-vhost") }}'
       rabbitmq_worker_user: '{{ ida_rabbitmq_worker_user | default("worker") }}'
       rabbitmq_worker_pass: '{{ ida_rabbitmq_worker_pass | default("test") }}'
 
-      # Configuration variables
-      # ~~~~~~~~~~~~~~~~~~~~~~~
+      # Repo variables
+      # ~~~~~~~~~~~~~~
+      repo_ida_url: '{{ ida_repo_ida_url | default("https://github.com/CSCfi/ida2") }}'
+      repo_ida_version: '{{ ida_repo_ida_version | default("master") }}'
+      repo_ida_tools_url: '{{ ida_repo_ida_tools_url | default("https://github.com/CSCfi/ida2-command-line-tools") }}'
+      repo_ida_tools_version: '{{ ida_repo_ida_tools_version | default("master") }}'
+
+      # Redis variables
+      # ~~~~~~~~~~~~~~~
+      redis_host: '{{ ida_redis_host | default("localhost") }}'
+      redis_port: '{{ ida_redis_port | default(6379) }}'
+
+      # Database variables
+      # ~~~~~~~~~~~~~~~~~~
+      db_host: '{{ ida_db_host | default("localhost") }}'
+      db_port: '{{ ida_db_port | default(5432) }}'
+      db_admin_user: '{{ ida_db_admin_user | default("admin") }}'
+      db_admin_password: '{{ ida_db_admin_password | default("secret") }}'
+      db_user: '{{ ida_db_user | default("nextcloud") }}'
+      db_password: '{{ ida_db_password | default("nextcloud") }}'
+
+      # Application variables
+      # ~~~~~~~~~~~~~~~~~~~~~
       metax_base_url: '{{ ida_metax_base_url | default("https://metax.fairdata.fi/") }}'
       metax_file_storage_id: '{{ ida_metax_file_storage_id | default("urn:nbn:fi:att:file-storage-ida") }}'
       metax_user: '{{ ida_metax_user | default("ida") }}'

@@ -10,3 +10,4 @@
       manage_application: True
       run_tests: False
       configure_proxy: False
+      application_django_env: '{{ metax_application_django_env | default("production") }}'

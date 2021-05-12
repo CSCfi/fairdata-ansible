@@ -32,6 +32,11 @@ The playbooks use the following host groups as described below.
 | Name             | Parent       | Description                                                   |
 |:---------------- |:------------ |:------------------------------------------------------------- |
 | downloadservers  |              | Servers hosting Download service                              |
+| idaservers       |              | Servers hosting IDA service                                   |
+| idaappservers    | idaservers   | Servers hosting IDA application                               |
+| idadbservers     | idaservers   | Servers hosting IDA database                                  |
+| idadataservers   | idaservers   | Servers hosting IDA rabbitmq server                           |
+| idacacheservers  | idaservers   | Servers hosting IDA redis                                     |
 | metaxservers     |              | Servers hosting Metax services                                |
 | metaxappservers  | metaxservers | Servers hosting Metax application services                    |
 | metaxdbservers   | metaxservers | Servers hosting Metax database                                |

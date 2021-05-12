@@ -24,6 +24,8 @@
       elasticsearch_hosts: '{{ metax_elasticsearch_hosts | default("localhost") }}'
       elasticsearch_port: '{{ metax_elasticsearch_port | default(9200) }}'
       # Redis
+      redis_host: '{{ metax_redis_bind_address | default("localhost") }}'
+      redis_port: '{{ metax_redis_bind_port | default(6379) }}'
       redis_password: '{{ metax_redis_password | default("metax") }}'
       redis_use_password: '{{ metax_redis_use_password | default("false") }}'
       # Rabbitmq
@@ -34,7 +36,9 @@
       rabbitmq_user: '{{ metax_rabbitmq_user | default("metax") }}'
       rabbitmq_password: '{{ metax_rabbitmq_password | default("metax") }}'
       # Application
+      application_debug: '{{ metax_application_debug | default("False") }}'
       application_django_env: '{{ metax_application_django_env | default("test") }}'
+      application_django_secret_key: '{{ metax_application_django_secret_key | default("secret") }}'
       # Auth
       application_auth_server_logout_url: '{{ metax_application_auth_server_logout_url | default("https://aai.example.com/idp/profile/Logout") }}'
       # OAI
@@ -55,17 +59,4 @@
       application_rems_auto_approver: '{{ metax_application_rems_auto_approver | default("not-used") }}'
       application_rems_form_id: '{{ metax_application_rems_form_id | default("555") }}'
       # Users
-      application_testaaja_consumer_password: '{{ metax_application_testaaja_consumer_password | default("not-used") }}'
-      application_etsin_consumer_password: '{{ metax_application_etsin_consumer_password | default("not-used") }}'
-      application_ttv_consumer_password: '{{ metax_application_ttv_consumer_password | default("not-used") }}'
-      application_metax_user_password: '{{ metax_application_metax_user_password | default("not-used") }}'
-      application_qvain_user_password: '{{ metax_application_qvain_user_password | default("not-used") }}'
-      application_ida_user_password: '{{ metax_application_ida_user_password | default("not-used") }}'
-      application_tpas_user_password: '{{ metax_application_tpas_user_password | default("not-used") }}'
-      application_etsin_user_password: '{{ metax_application_etsin_user_password | default("not-used") }}'
-      application_fds_user_password: '{{ metax_application_fds_user_password | default("not-used") }}'
-      application_qvain_light_user_password: '{{ metax_application_qvain_light_user_password | default("not-used") }}'
-      application_jori_user_password: '{{ metax_application_jori_user_password | default("not-used") }}'
-      application_ttv_user_password: '{{ metax_application_ttv_user_password | default("not-used") }}'
-      application_download_user_password: '{{ metax_application_download_user_password | default("not-used") }}'
-      application_jyu_user_password: '{{ metax_application_jyu_user_password | default("not-used") }}'
+      application_api_users: '{{ metax_application_api_users | default([]) }}'
