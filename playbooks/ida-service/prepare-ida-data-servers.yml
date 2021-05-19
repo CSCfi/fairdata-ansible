@@ -9,25 +9,29 @@
       enabled_plugins:
         - 'rabbitmq_management'
       vhosts:
-        - '{{ ida_rabbitmq_vhost | default("ida_vhost") }}'
-        - '{{ ida_rabbitmq_test_vhost | default("test-ida-vhost") }}'
+        - '{{ ida_rabbitmq_vhost | default("ida-vhost") }}'
       users:
         - user: '{{ ida_rabbitmq_admin_user | default("admin") }}'
           pass: '{{ ida_rabbitmq_admin_pass | default("test") }}'
           tags: 'administrator'
           permissions:
-          - vhost: '{{ ida_rabbitmq_vhost | default("ida_vhost") }}'
-            configure_priv: '^$'
-            read_priv: '.*'
-            write_priv: '.*'
-          - vhost: '{{ ida_rabbitmq_test_vhost | default("test-ida-vhost") }}'
-            configure_priv: '^$'
+          - vhost: '{{ ida_rabbitmq_vhost | default("ida-vhost") }}'
+            configure_priv: '.*'
             read_priv: '.*'
             write_priv: '.*'
         - user: '{{ ida_rabbitmq_worker_user | default("worker") }}'
           pass: '{{ ida_rabbitmq_worker_pass | default("test") }}'
+          tags: 'management'
           permissions:
-          - vhost: '{{ ida_rabbitmq_vhost | default("ida_vhost") }}'
+          - vhost: '{{ ida_rabbitmq_vhost | default("ida-vhost") }}'
             configure_priv: '^$'
             read_priv: '.*'
             write_priv: '.*'
+        - user: '{{ ida_rabbitmq_monitoring_user | default("monitor") }}'
+          pass: '{{ ida_rabbitmq_monitoring_pass | default("test") }}'
+          tags: 'management'
+          permissions:
+          - vhost: '{{ ida_rabbitmq_vhost | default("ida-vhost") }}'
+            configure_priv: '^$'
+            read_priv: '.*'
+            write_priv: '^$'
