@@ -35,6 +35,9 @@
       rabbitmq_vhost_ttv: '{{ metax_rabbitmq_vhost_ttv | default("ttv") }}'
       rabbitmq_user: '{{ metax_rabbitmq_user | default("metax") }}'
       rabbitmq_password: '{{ metax_rabbitmq_password | default("metax") }}'
+      # Gunicorn
+      gunicorn_workers: '{{ metax_gunicorn_workers | default("1") }}'
+      gunicorn_threads: '{{ metax_gunicorn_threads | default("4") }}'
       # Application
       application_debug: '{{ metax_application_debug | default("False") }}'
       application_django_env: '{{ metax_application_django_env | default("test") }}'
