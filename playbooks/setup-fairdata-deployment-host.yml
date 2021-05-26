@@ -1,0 +1,29 @@
+---
+- name: Setup Fairdata deployment server
+  hosts: deployservers
+  remote_user: '{{ deploy_admin | default("cloud-user") }}'
+  roles:
+  - role: fairdata-ansible-deploy
+    vars:
+      deploy_key_src: '{{ deploy_deploy_key_src }}'
+      deploy_gnupg_src: '{{ deploy_deploy_gnupg_src }}'
+      deployment_fqdn: '{{ deploy_deployment_fqdn | default("ci.fairdata.fi") }}'
+      # Secrets variables
+      # ~~~~~~~~~~~~~~~~~
+      fd_ansible_repo_url: '{{ deploy_fd_ansible_repo_url | default("https://github.com/cscfi/fairdata-ansible")}}'
+      fd_ansible_repo_version: '{{ deploy_fd_ansible_repo_version | default("master")}}'
+      fd_ansible_role_requirements: '{{ deploy_fd_ansible_role_requirements | default("ansible-role-requirements.yml")}}'
+      # Secrets variables
+      # ~~~~~~~~~~~~~~~~~
+      fd_secrets_repo_url: '{{ deploy_fd_secrets_repo_url }}'
+      fd_secrets_repo_version: '{{ deploy_fd_secrets_repo_version | default("master") }}'
+      # Nginx variables
+      # ~~~~~~~~~~~~~~~
+      nginx_install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
+      nginx_ssl_wildcard_certificate_src: '{{ fairdata_ssl_wildcard_certificate_src | default("") }}'
+      nginx_ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'
+      nginx_ssl_wildcard_certificate_key_src: '{{ fairdata_ssl_wildcard_certificate_key_src | default("") }}'
+      nginx_ssl_wildcard_certificate_key_dest: '{{ fairdata_ssl_wildcard_certificate_key_dest | default("") }}'
+      nginx_gitlab_fqdn: '{{ deploy_nginx_gitlab_fqdn | default("gitlab.com") }}'
+      nginx_gitlab_ssh_port: '{{ deploy_nginx_gitlab_ssh_port | default(22) }}'
+      nginx_docker_registry_fqdn: '{{ deploy_nginx_docker_registry_fqdn | default("hub.docker.com") }}'
