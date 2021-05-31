@@ -18,7 +18,7 @@
         bootstrap.memory_lock: true
         cluster.name: '{{ elasticsearch_cluster_name | default("etsin-es-cluster") }}'
         network.host: '{{ elasticsearch_bind_host | default("_local_") }}'
-        discovery.seed_hosts: '{{ elasticsearch_bind_host | default("") }}'
+        # discovery.seed_hosts: '{{ elasticsearch_bind_host | default("") }}'
         http.port: '{{ elasticsearch_http_port | default(9200) }}'
         node.data: true
         node.master: true
