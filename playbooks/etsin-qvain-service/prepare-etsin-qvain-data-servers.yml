@@ -16,13 +16,13 @@
       es_api_port: '{{ elasticsearch_http_port | default(9200) }}'
       es_instance_name: "{{ elasticsearch_instance.node_name }}"
       es_config:
-        allow_origin: "https://{{ server_domain_name }}"
+        allow_origin: "https://{{ deployment_etsin_fqdn }}"
         bootstrap.memory_lock: true
         cluster.name: '{{ elasticsearch_cluster_name | default("etsin-es-cluster") }}'
         network.host: [_local_, "{{ dataserver_1_internal_ip }}"]
         http.port: '{{ elasticsearch_http_port | default(9200) }}'
         http.cors.enabled : true,
-        http.cors.allow-origin : "{{ elasticsearch_instance.allow_origin }}",
+        http.cors.allow-origin : "{{ deployment_etsin_fqdn }}",
         http.cors.allow-methods : "OPTIONS, HEAD, GET, POST, PUT, DELETE",
         http.cors.allow-headers : "X-Requested-With,X-Auth-Token,Content-Type,Content-Length",
         node.data: true
