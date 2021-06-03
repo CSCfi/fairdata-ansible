@@ -23,7 +23,7 @@
         http.port: '{{ elasticsearch_http_port | default(9200) }}'
         http.cors.enabled : true,
         http.cors.allow-origin : "{{ deployment_etsin_fqdn }}"
-        http.cors.allow-methods : "OPTIONS, HEAD, GET, POST, PUT, DELETE",
+        http.cors.allow-methods : "OPTIONS, HEAD, GET, POST, PUT, DELETE"
         http.cors.allow-headers : "X-Requested-With,X-Auth-Token,Content-Type,Content-Length"
         node.data: true
         node.master: true
