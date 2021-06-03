@@ -15,9 +15,13 @@
     vars:
       es_api_port: '{{ elasticsearch_http_port | default(9200) }}'
       es_config:
+        heap_size: 4g
+        is_data_node: "true"
+        is_master_node: "true"
+        allow_origin: "https://{{ server_domain_name }}"
         bootstrap.memory_lock: true
         cluster.name: '{{ elasticsearch_cluster_name | default("etsin-es-cluster") }}'
-        network.host: '{{ elasticsearch_bind_host | default("_local_") }}'
+        network.host: [_local_, "{{ dataserver_1_internal_ip }}"]
         # discovery.seed_hosts: '{{ elasticsearch_bind_host | default("") }}'
         http.port: '{{ elasticsearch_http_port | default(9200) }}'
         node.data: true
@@ -30,6 +34,7 @@
       es_version: '{{ elasticsearch_version | default("6.5.2") }}'
       es_version_lock: true
       es_xpack_features: []
+
   - role: fairdata-ansible-etsin-qvain
     vars:
       deploy_app_server: False
