@@ -51,6 +51,7 @@
 
       # Application variables
       # ~~~~~~~~~~~~~~~~~~~~~
+      application_passwordhash: '{{ ida_application_passwordhash | default("secret") }}'
       metax_base_url: '{{ ida_metax_base_url | default("https://metax.fairdata.fi/") }}'
       metax_file_storage_id: '{{ ida_metax_file_storage_id | default("urn:nbn:fi:att:file-storage-ida") }}'
       metax_user: '{{ ida_metax_user | default("ida") }}'
