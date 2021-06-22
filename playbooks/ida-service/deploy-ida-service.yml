@@ -67,7 +67,7 @@
       sso_api_domain: '{{ ida_sso_api_domain | default("fairdata.fi") }}'
       sso_authentication: '{{ ida_sso_authentication | default("false") }}'
       sso_key: '{{ ida_sso_key | default("secret") }}'
-      sso_password: '{{ ida_sso_password }} | default("test") }}'
+      sso_password: '{{ ida_sso_password | default("test") }}'
       ldap_host_url: '{{ ida_ldap_host_url | default("ldaps://ldap.example.com") }}'
       ldap_bind_user: '{{ ida_ldap_bind_user | default("uid=test,ou=Special Users,dc=csc,dc=fi") }}'
       ldap_password: '{{ ida_ldap_password | default("secret") }}'
