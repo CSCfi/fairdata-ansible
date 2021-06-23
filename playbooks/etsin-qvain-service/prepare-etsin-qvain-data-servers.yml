@@ -11,6 +11,11 @@
       python_executable: '{{ fairdata_python_python_executable | default("python3") }}'
       rpm_src: '{{ fairdata_python_rpm_src | default("") }}'
       rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
+  
+  # The below code (commented away) is tested as functional.
+  # These rows can be enabled again when/if upgrading to ElasticSearch version 6+
+  # Currently using ElasticSearch v5.6.11
+  # -------------------------------------
   # - role: ansible-elasticsearch
   #   vars:
   #     es_api_port: '{{ elasticsearch_http_port | default(9200) }}'
