@@ -12,16 +12,15 @@
       rpm_src: '{{ fairdata_python_rpm_src | default("") }}'
       rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
 
-- name: Transfer install_custom_ansible_elasticsearch.sh and execute the script
+- name: Install ansible-elasticsearch custom role for installation of ElasticSearch v5.6.11
   hosts: etsinqvaindataservers
   remote_user: '{{ deployer }}'
   sudo: yes
   tasks:
      - name: Transfer the installation script
-       copy: src=install_custom_ansible_elasticsearch.sh dest=/home/'{{ deployer }}' mode=0777
-
+       copy: src=install_requirements.sh dest=/home/'{{ deployer }}' mode=0777
      - name: Execute installation of a custom version of ansible-elasticsearch
-       command: sh /home/'{{ deployer }}'/install_custom_ansible_elasticsearch.sh
+       command: sh /home/'{{ deployer }}'/install_requirements.sh
 
 # Custom forked role for installation of ElasticSearch v5, available at https://github.com/CSCfi/ansible-elasticsearch, installed above
 - include_role:
