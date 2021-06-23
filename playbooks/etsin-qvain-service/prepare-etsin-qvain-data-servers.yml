@@ -2,7 +2,6 @@
 - name: Install ansible-elasticsearch custom role for installation of ElasticSearch v5.6.11
   hosts: etsinqvaindataservers
   remote_user: '{{ deployer }}'
-  sudo: yes
   tasks:
      - name: Transfer the installation script
        copy: src=install_requirements.sh dest=/home/'{{ deployer }}' mode=0777
