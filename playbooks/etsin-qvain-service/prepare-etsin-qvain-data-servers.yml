@@ -22,8 +22,7 @@
       rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
 
   # Custom forked role for installation of ElasticSearch v5, available at https://github.com/CSCfi/ansible-elasticsearch, installed above
-  - role:
-      name: ansible-elasticsearch
+  - role: ansible-elasticsearch
     vars:
       es_instance_name: "{{ elasticsearch_instance.node_name }}"
       es_heap_size: '{{ elasticsearch_heap_size | default("256m")}}'
