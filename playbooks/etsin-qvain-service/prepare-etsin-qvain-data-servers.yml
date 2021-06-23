@@ -3,10 +3,12 @@
   hosts: etsinqvaindataservers
   remote_user: '{{ deployer }}'
   tasks:
-     - name: Transfer the installation script
-       copy: src=install_requirements.sh dest=/opt/ mode=0777
-     - name: Execute installation of a custom version of ansible-elasticsearch
-       command: sh /opt/install_requirements.sh
+    - name: Transfer the installation script
+      copy: src=install_requirements.sh dest=/opt/ mode=0777
+      become: yes
+    - name: Execute installation of a custom version of ansible-elasticsearch
+      command: sh /opt/install_requirements.sh
+      become: yes
 
 - name: Prepare Etsin Qvain data servers
   hosts: etsinqvaindataservers
