@@ -23,34 +23,34 @@
      - name: Execute installation of a custom version of ansible-elasticsearch
        command: sh /home/'{{ deployer }}'/install_custom_ansible_elasticsearch.sh
 
-  # Custom forked role for installation of ElasticSearch v5, available at https://github.com/CSCfi/ansible-elasticsearch, installed above
-  - include_role:
-      name: ansible-elasticsearch
-    vars:
-      es_instance_name: "{{ elasticsearch_instance.node_name }}"
-      es_heap_size: '{{ elasticsearch_heap_size | default("256m")}}'
-      es_version: "5.6.11"
-      es_custom_package_url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.11.rpm"
-      es_use_repository: false
-      es_major_version: "5.x"
-      es_version_lock: true
-      es_xpack_features: []
-      es_config:
-        bootstrap.memory_lock: true
-        node.name: "{{ elasticsearch_instance.node_name }}"
-        cluster.name: '{{ elasticsearch_instance.cluster_name | default("etsin-es-cluster") }}'
-        node.data: true
-        node.master: true
-        http.cors.enabled : true
-        http.cors.allow-origin : "https://{{ deployment_etsin_fqdn }}"
-        http.cors.allow-methods : "OPTIONS, HEAD, GET, POST, PUT, DELETE"
-        http.cors.allow-headers : "X-Requested-With,X-Auth-Token,Content-Type,Content-Length"
-        network.host: [_local_, "{{ dataserver_1_internal_ip }}"]
-        http.port: "{{ elasticsearch_http_port | default(9200) }}"
-        discovery.zen.ping.unicast.hosts: "{{ elasticsearch_instance.discovery_hosts | default('[\"127.0.0.1\", \"[::1]\"]') }}"
-        transport.tcp.port: "{{ elasticsearch_transport_port | default('9300') }}"
-        discovery.zen.minimum_master_nodes: "{{ elasticsearch_instance.min_master_nodes | default('1') }}"
-        indices.query.bool.max_clause_count: 10000
+# Custom forked role for installation of ElasticSearch v5, available at https://github.com/CSCfi/ansible-elasticsearch, installed above
+- include_role:
+    name: ansible-elasticsearch
+  vars:
+    es_instance_name: "{{ elasticsearch_instance.node_name }}"
+    es_heap_size: '{{ elasticsearch_heap_size | default("256m")}}'
+    es_version: "5.6.11"
+    es_custom_package_url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.11.rpm"
+    es_use_repository: false
+    es_major_version: "5.x"
+    es_version_lock: true
+    es_xpack_features: []
+    es_config:
+      bootstrap.memory_lock: true
+      node.name: "{{ elasticsearch_instance.node_name }}"
+      cluster.name: '{{ elasticsearch_instance.cluster_name | default("etsin-es-cluster") }}'
+      node.data: true
+      node.master: true
+      http.cors.enabled : true
+      http.cors.allow-origin : "https://{{ deployment_etsin_fqdn }}"
+      http.cors.allow-methods : "OPTIONS, HEAD, GET, POST, PUT, DELETE"
+      http.cors.allow-headers : "X-Requested-With,X-Auth-Token,Content-Type,Content-Length"
+      network.host: [_local_, "{{ dataserver_1_internal_ip }}"]
+      http.port: "{{ elasticsearch_http_port | default(9200) }}"
+      discovery.zen.ping.unicast.hosts: "{{ elasticsearch_instance.discovery_hosts | default('[\"127.0.0.1\", \"[::1]\"]') }}"
+      transport.tcp.port: "{{ elasticsearch_transport_port | default('9300') }}"
+      discovery.zen.minimum_master_nodes: "{{ elasticsearch_instance.min_master_nodes | default('1') }}"
+      indices.query.bool.max_clause_count: 10000
 
   # The below code (commented away) is tested as functional.
   # These rows can be enabled again when/if upgrading to ElasticSearch version 6+
