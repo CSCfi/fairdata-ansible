@@ -1,15 +1,4 @@
 ---
-# - name: Install ansible-elasticsearch custom role for installation of ElasticSearch v5.6.11
-#   hosts: etsinqvaindataservers
-#   remote_user: '{{ deployer }}'
-#   tasks:
-#     - name: Transfer the installation script
-#       copy: src=install_requirements.sh dest=/opt/ mode=0777
-#       become: yes
-#     - name: Execute installation of a custom version of ansible-elasticsearch
-#       command: sh /opt/install_requirements.sh
-#       become: yes
-
 - name: Prepare Etsin Qvain data servers
   hosts: etsinqvaindataservers
   remote_user: '{{ deployer }}'
