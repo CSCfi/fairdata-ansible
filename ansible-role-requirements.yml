@@ -1,8 +1,8 @@
 - name: ansible-elasticsearch
   scm: git
   src: https://github.com/elastic/ansible-elasticsearch.git
-  version: v7.8.0
-  trackbranch: v7.8.0
+  version: v7.10.2
+  trackbranch: v7.10.2
 - name: anxs.postgresql
   scm: git
   src: https://github.com/ANXS/postgresql
