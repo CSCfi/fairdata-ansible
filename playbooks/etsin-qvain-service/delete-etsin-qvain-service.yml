@@ -1,5 +1,5 @@
 ---
-- name: Delete Etsin-Qvain
+- name: Delete Etsin-Qvain Service
   hosts: etsinqvainappservers
   remote_user: '{{ deployer }}'
   roles:

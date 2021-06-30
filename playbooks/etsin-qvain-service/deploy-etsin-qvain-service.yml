@@ -1,5 +1,5 @@
 ---
-- name: Deploy Etsin-Qvain
+- name: Deploy Etsin-Qvain Service
   hosts: etsinqvainappservers
   remote_user: '{{ deployer }}'
   roles:
