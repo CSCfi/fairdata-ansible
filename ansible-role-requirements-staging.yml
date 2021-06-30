@@ -6,8 +6,8 @@
 - name: ansible-elasticsearch-old-csc-forked-version
   scm: git
   src: https://github.com/CSCfi/ansible-elasticsearch.git
-  version: fairdata
-  trackbranch: fairdata
+  version: etsin-qvain
+  trackbranch: etsin-qvain
 - name: anxs.postgresql
   scm: git
   src: https://github.com/ANXS/postgresql
