@@ -3,6 +3,11 @@
   src: https://github.com/elastic/ansible-elasticsearch.git
   version: v7.10.2
   trackbranch: v7.10.2
+- name: ansible-elasticsearch-old-csc-forked-version
+  scm: git
+  src: https://github.com/CSCfi/ansible-elasticsearch.git
+  version: fairdata
+  trackbranch: fairdata
 - name: anxs.postgresql
   scm: git
   src: https://github.com/ANXS/postgresql
