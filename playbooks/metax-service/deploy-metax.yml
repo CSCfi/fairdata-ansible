@@ -64,3 +64,5 @@
       application_rems_form_id: '{{ metax_application_rems_form_id | default("555") }}'
       # Users
       application_api_users: '{{ metax_application_api_users | default([]) }}'
+      # Permissions
+      application_additional_projects: '{{ metax_application_additional_projects | default([]) }}'
