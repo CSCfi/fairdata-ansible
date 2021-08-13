@@ -12,6 +12,6 @@
       configure_proxy: False
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
       # Repo
-      repo_url: '{{ etsin_qvain_repo_url | default("https://github.com/CSCfi/etsin-finder.git") }}'
+      repo_url_app: '{{ etsin_qvain_repo_url | default("https://github.com/CSCfi/etsin-finder.git") }}'
       repo_version: '{{ etsin_qvain_repo_version | default("master") }}'
       python_virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
