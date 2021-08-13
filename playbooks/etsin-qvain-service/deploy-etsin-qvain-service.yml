@@ -9,7 +9,7 @@
       deploy_application: True
       manage_application: False
       run_tests: False
-      configure_proxy: False
+      configure_proxy: '{{ etsin_qvain_configure_proxy | default(True) }}'
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
       # Repo
       repo_url_app: '{{ etsin_qvain_repo_url | default("https://github.com/CSCfi/etsin-finder.git") }}'
