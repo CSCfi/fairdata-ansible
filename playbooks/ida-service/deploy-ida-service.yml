@@ -62,6 +62,7 @@
       application_project_user_pass: '{{ ida_application_project_user_pass | default("test") }}'
       application_test_user_pass: '{{ ida_application_test_user_pass | default("test") }}'
       application_batch_action_token: '{{ ida_application_batch_action_token | default("test") }}'
+
       application_storage_candidates: '{{ ida_application_storage_candidates | default(["/mnt/storage_vol01/ida", "/mnt/storage_vol02/ida"]) }}'
       application_passwordhash: '{{ ida_application_passwordhash | default("passwordhash") }}'
       application_secret: '{{ ida_application_secret | default("secret") }}'
