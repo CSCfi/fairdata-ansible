@@ -21,5 +21,5 @@
 
       # Repository variables
       # ~~~~~~~~~~~~~~~~~~~~~
-      repo_url_app: '{{ etsin_search_repo_url | default("https://github.com/CSCfi/etsin-finder-search.git") }}'
+      repo_url_data: '{{ etsin_search_repo_url | default("https://github.com/CSCfi/etsin-finder-search.git") }}'
       repo_version: '{{ etsin_search_repo_version | default("master") }}'
