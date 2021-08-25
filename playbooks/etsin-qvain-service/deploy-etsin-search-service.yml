@@ -1,6 +1,6 @@
 ---
 - name: Deploy Etsin-Search Service
-  hosts: etsinqvainappservers
+  hosts: etsinqvaindataservers
   remote_user: '{{ deployer }}'
   roles:
   - role: fairdata-ansible-etsin-qvain
