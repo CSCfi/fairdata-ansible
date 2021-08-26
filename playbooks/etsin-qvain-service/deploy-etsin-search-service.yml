@@ -7,8 +7,9 @@
     vars:
       deploy_app_server: False
       deploy_data_server: True
-      prepare_application: True
+      prepare_application: False
       deploy_application: True
+      manage_application: False
       run_tests: False
       configure_proxy: False
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
