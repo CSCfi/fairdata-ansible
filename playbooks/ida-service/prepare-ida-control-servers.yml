@@ -1,6 +1,6 @@
 ---
-- name: Prepare Fairdata IDA data servers
-  hosts: idadataservers
+- name: Prepare Fairdata IDA control servers
+  hosts: idacontrolservers
   remote_user: '{{ deployer }}'
   roles:
   - role: fairdata-ansible-rabbitmq

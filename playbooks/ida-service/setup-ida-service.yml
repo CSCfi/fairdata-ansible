@@ -1,6 +1,6 @@
 ---
 - import_playbook: prepare-ida-db-servers.yml
-- import_playbook: prepare-ida-data-servers.yml
+- import_playbook: prepare-ida-control-servers.yml
 - import_playbook: prepare-ida-cache-servers.yml
 - import_playbook: prepare-ida-app-servers.yml
 - import_playbook: deploy-ida-service.yml
