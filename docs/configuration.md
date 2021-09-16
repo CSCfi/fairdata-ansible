@@ -39,7 +39,7 @@ The playbooks use the following host groups as described below.
 | idafrontendservers         | idaservers        | Servers hosting IDA application                               |
 | idadbservers          | idaservers        | Servers hosting IDA database                                  |
 | idacontrolservers        | idaservers        | Servers hosting IDA rabbitmq server                           |
-| idacacheservers       | idaservers        | Servers hosting IDA redis                                     |
+| idafrontendcacheservers       | idaservers        | Servers hosting IDA redis                                     |
 | metaxservers          |                   | Servers hosting Metax services                                |
 | metaxappservers       | metaxservers      | Servers hosting Metax application services                    |
 | metaxdbservers        | metaxservers      | Servers hosting Metax database                                |
