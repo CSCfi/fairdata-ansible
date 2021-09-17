@@ -1,6 +1,6 @@
 ---
 - name: Deploy Fairdata IDA Service
-  hosts: idaappservers
+  hosts: idafrontendservers
   remote_user: '{{ deployer }}'
   roles:
   - role: fairdata-ansible-ida
@@ -35,10 +35,10 @@
 
       # Repo variables
       # ~~~~~~~~~~~~~~
-      repo_ida_url: '{{ ida_repo_ida_url | default("https://github.com/CSCfi/ida2") }}'
-      repo_ida_version: '{{ ida_repo_ida_version | default("master") }}'
-      repo_ida_tools_url: '{{ ida_repo_ida_tools_url | default("https://github.com/CSCfi/ida2-command-line-tools") }}'
-      repo_ida_tools_version: '{{ ida_repo_ida_tools_version | default("master") }}'
+      repo_ida_url: '{{ ida_repo_url | default("https://github.com/CSCfi/ida2") }}'
+      repo_ida_version: '{{ ida_repo_version | default("master") }}'
+      repo_ida_tools_url: '{{ ida_repo_tools_url | default("https://github.com/CSCfi/ida2-command-line-tools") }}'
+      repo_ida_tools_version: '{{ ida_repo_tools_version | default("master") }}'
 
       # Redis variables
       # ~~~~~~~~~~~~~~~
@@ -47,7 +47,7 @@
 
       # Database variables
       # ~~~~~~~~~~~~~~~~~~
-      db_type: '{{ ida_db_type | default("pqsql") }}'
+      db_type: '{{ ida_db_type | default("pgsql") }}'
       db_host: '{{ ida_db_host | default("localhost") }}'
       db_port: '{{ ida_db_port | default(5432) }}'
       db_admin_user: '{{ ida_db_admin_user | default("admin") }}'

@@ -36,10 +36,10 @@ The playbooks use the following host groups as described below.
 | etsinqvainappservers  | etsinqvainservers | Servers hosting the Etsin-Qvain application services          |
 | etsinqvaindataservers | etsinqvainservers | Servers hosting Etsin-Qvain elasticsearch & rabbitmq-consumer |
 | idaservers            |                   | Servers hosting IDA service                                   |
-| idaappservers         | idaservers        | Servers hosting IDA application                               |
+| idafrontendservers         | idaservers        | Servers hosting IDA application                               |
 | idadbservers          | idaservers        | Servers hosting IDA database                                  |
-| idadataservers        | idaservers        | Servers hosting IDA rabbitmq server                           |
-| idacacheservers       | idaservers        | Servers hosting IDA redis                                     |
+| idacontrolservers        | idaservers        | Servers hosting IDA rabbitmq server                           |
+| idafrontendcacheservers       | idaservers        | Servers hosting IDA redis                                     |
 | metaxservers          |                   | Servers hosting Metax services                                |
 | metaxappservers       | metaxservers      | Servers hosting Metax application services                    |
 | metaxdbservers        | metaxservers      | Servers hosting Metax database                                |

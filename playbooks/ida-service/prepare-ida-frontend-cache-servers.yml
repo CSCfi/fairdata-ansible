@@ -1,6 +1,6 @@
 ---
-- name: Prepare Fairdata IDA Cache Servers
-  hosts: idacacheservers
+- name: Prepare Fairdata IDA Frontend Cache Servers
+  hosts: idafrontendcacheservers
   remote_user: '{{ deployer }}'
   roles:
   - role: fairdata-ansible-redis

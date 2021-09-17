@@ -1,6 +1,6 @@
 ---
-- name: Prepare Fairdata IDA Application servers
-  hosts: idaappservers
+- name: Prepare Fairdata IDA frontend servers
+  hosts: idafrontendservers
   remote_user: '{{ deployer }}'
   roles:
   - role: fairdata-ansible-python

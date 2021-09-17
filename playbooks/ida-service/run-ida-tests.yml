@@ -1,6 +1,6 @@
 ---
 - name: Run Fairdata IDA Tests
-  hosts: idaappservers
+  hosts: idafrontendservers
   remote_user: '{{ deployer }}'
   roles:
   - role: fairdata-ansible-ida
