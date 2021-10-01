@@ -101,3 +101,8 @@
       # Flags
       # ----------------------
       flags: '{{ etsin_qvain_flags }}'
+
+      # Nginx
+      # ----------------------
+      nginx_es_credentials_username: '{{ etsin_qvain_nginx_es_credentials_username }}'
+      nginx_es_credentials_password: '{{ etsin_qvain_nginx_es_credentials_password }}'
