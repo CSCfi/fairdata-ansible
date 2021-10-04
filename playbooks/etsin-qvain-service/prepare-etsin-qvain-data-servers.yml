@@ -132,6 +132,13 @@
       metax_api_password: '{{ etsin_qvain_metax_api_password }}'
       metax_api_verify_ssl: '{{ etsin_qvain_metax_api_verify_ssl }}'
 
+      # Metax Qvain API variables
+      # ~~~~~~~~~~~~~~~~~~~~~
+      metax_qvain_api_host: '{{ etsin_qvain_metax_qvain_api_host }}'
+      metax_qvain_api_user: '{{ etsin_qvain_metax_qvain_api_user }}'
+      metax_qvain_api_password: '{{ etsin_qvain_metax_qvain_api_password }}'
+      metax_qvain_api_verify_ssl: '{{ etsin_qvain_metax_qvain_api_verify_ssl }}'
+
       # Download (V2) variables
       # ~~~~~~~~~~~~~~~~~~~~~
       download_api_v2_enabled: '{{ etsin_qvain_download_api_v2_enabled }}'
