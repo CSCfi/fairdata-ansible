@@ -9,7 +9,6 @@
       deploy_data_server: False
       prepare_application: False
       deploy_application: True
-      manage_application: False
       run_tests: False
       configure_proxy: '{{ etsin_qvain_configure_proxy | default(True) }}'
 
