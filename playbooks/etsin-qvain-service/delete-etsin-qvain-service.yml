@@ -9,5 +9,6 @@
       deploy_application: False
       run_tests: False
       configure_proxy: False
+      delete_deployment: True
       delete_etsin_qvain_deployment: True
       delete_etsin_search_deployment: False

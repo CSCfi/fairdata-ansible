@@ -7,8 +7,8 @@
     vars:
       prepare_application: False
       deploy_application: False
-      manage_application: False
       run_tests: False
       configure_proxy: False
+      delete_deployment: True
       delete_etsin_qvain_deployment: False
       delete_etsin_search_deployment: True
