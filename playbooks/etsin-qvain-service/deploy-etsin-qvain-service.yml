@@ -23,9 +23,9 @@
       # Repository variables
       # ~~~~~~~~~~~~~~~~~~~~~
       repo_url: '{{ etsin_qvain_repo_url }}'
-      repo_version: '{{ etsin_qvain_repo_version }}'
+      repo_version_app: '{{ etsin_qvain_repo_version }}'
       search_repo_url: '{{ etsin_search_repo_url }}'
-      search_repo_version: '{{ etsin_search_repo_version }}'
+      repo_version_data: '{{ etsin_search_repo_version }}'
 
       # Secret key
       # ~~~~~~~~~~~~~~~~~~~~~
