@@ -10,7 +10,7 @@
       prepare_application: False
       deploy_application: True
       run_tests: False
-      configure_proxy: '{{ etsin_qvain_configure_proxy | default(True) }}'
+      configure_proxy: False
 
       # Shared variables
       # ~~~~~~~~~~~~~~~~~~~~~
