@@ -26,7 +26,7 @@
       prepare_application: True
       deploy_application: True
       run_tests: False
-      configure_proxy: True
+      configure_proxy: False
 
       # Shared variables
       # ~~~~~~~~~~~~~~~~~~~~~
