@@ -1,6 +1,6 @@
 ---
 - name: Update Fairdata IDA Proxy
-  hosts: idaappservers
+  hosts: idafrontendservers
   remote_user: '{{ deployer }}'
   roles:
   - role: fairdata-ansible-ida

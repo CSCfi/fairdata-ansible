@@ -1,0 +1,12 @@
+---
+- name: Test Etsin-Qvain Service
+  hosts: etsinqvainappservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-etsin-qvain
+    vars:
+      prepare_application: False
+      deploy_application: False
+      manage_application: False
+      run_tests: True
+      configure_proxy: False

@@ -1,0 +1,115 @@
+---
+- name: Deploy Etsin-Search Service
+  hosts: etsinqvaindataservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-etsin-qvain
+    vars:
+      deploy_app_server: False
+      deploy_data_server: True
+      prepare_application: False
+      deploy_application: True
+      manage_application: False
+      run_tests: False
+      configure_proxy: False
+
+
+      # Shared variables
+      # ~~~~~~~~~~~~~~~~~~~~~
+      instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
+      python_virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
+      metax_qvain_api_password: '{{ metax_application_qvain_user_password | default("not_used") }}'
+      metax_api_password: '{{ metax_application_etsin_user_password | default("not_used") }}'
+
+      # Repository variables
+      # ~~~~~~~~~~~~~~~~~~~~~
+      repo_url_app: '{{ etsin_qvain_repo_url }}'
+      repo_version_app: '{{ etsin_qvain_repo_version }}'
+      search_repo_url: '{{ etsin_search_repo_url }}'
+      repo_version_data: '{{ etsin_search_repo_version }}'
+
+      # Secret key
+      # ~~~~~~~~~~~~~~~~~~~~~
+      secret_key: '{{ etsin_qvain_secret_key }}'
+
+      # Mail variables
+      # ~~~~~~~~~~~~~~~~~~~~~
+      mail_server: '{{ etsin_qvain_mail_server }}'
+      mail_port: '{{ etsin_qvain_mail_port }}'
+      mail_username: '{{ etsin_qvain_mail_username }}'
+      mail_password: '{{ etsin_qvain_mail_password }}'
+      mail_default_sender: '{{ etsin_qvain_mail_default_sender }}'
+
+      # App variables
+      # ~~~~~~~~~~~~~~~~~~~~~
+      app_hosts: '{{ etsin_qvain_app_hosts }}'
+
+      # ElasticSearch variables
+      # ~~~~~~~~~~~~~~~~~~~~~
+      elasticsearch_hosts: '{{ etsin_qvain_elasticsearch_hosts | default("127.0.0.1") }}'
+      elasticsearch_port: '{{ etsin_qvain_elasticsearch_port }}'
+      elasticsearch_use_ssl: '{{ etsin_qvain_elasticsearch_use_ssl}}'
+
+      # Metax RabbitMQ variables
+      # ~~~~~~~~~~~~~~~~~~~~~
+      metax_rabbitmq_hosts: '{{ etsin_qvain_metax_rabbitmq_hosts }}'
+      metax_rabbitmq_port: '{{ etsin_qvain_metax_rabbitmq_port }}'
+      metax_rabbitmq_vhost: '{{ etsin_qvain_metax_rabbitmq_vhost }}'
+      metax_rabbitmq_exchange: '{{ etsin_qvain_metax_rabbitmq_exchange }}'
+      metax_rabbitmq_user: '{{ etsin_qvain_metax_rabbitmq_user }}'
+      metax_rabbitmq_password: '{{ etsin_qvain_metax_rabbitmq_password }}'
+
+      # Metax API variables
+      # ~~~~~~~~~~~~~~~~~~~~~
+      metax_api_host: '{{ etsin_qvain_metax_api_host }}'
+      metax_api_user: '{{ etsin_qvain_metax_api_user }}'
+      metax_api_password: '{{ etsin_qvain_metax_api_password }}'
+      metax_api_verify_ssl: '{{ etsin_qvain_metax_api_verify_ssl }}'
+
+      # Metax Qvain API variables
+      # ~~~~~~~~~~~~~~~~~~~~~
+      metax_qvain_api_host: '{{ etsin_qvain_metax_qvain_api_host }}'
+      metax_qvain_api_user: '{{ etsin_qvain_metax_qvain_api_user }}'
+      metax_qvain_api_password: '{{ etsin_qvain_metax_qvain_api_password }}'
+      metax_qvain_api_verify_ssl: '{{ etsin_qvain_metax_qvain_api_verify_ssl }}'
+
+      # Download (V2) variables
+      # ~~~~~~~~~~~~~~~~~~~~~
+      download_api_v2_enabled: '{{ etsin_qvain_download_api_v2_enabled }}'
+      download_api_v2_host: '{{ etsin_qvain_download_api_v2_host }}'
+      download_api_v2_port: '{{ etsin_qvain_download_api_v2_port }}'
+      download_api_v2_user: '{{ etsin_qvain_download_api_v2_user }}'
+      download_api_v2_password: '{{ etsin_qvain_download_api_v2_password }}'
+      download_api_v2_public_host: '{{ etsin_qvain_download_api_v2_public_host }}'
+      download_api_v2_public_port: '{{ etsin_qvain_download_api_v2_public_port }}'
+
+      # Memcached variables
+      # ~~~~~~~~~~~~~~~~~~~~~
+      memcached_host: '{{ etsin_qvain_memcached_host }}'
+      memcached_port: '{{ etsin_qvain_memcached_port }}'
+
+      # Rems
+      # -----------------------
+      fd_rems_enabled: '{{ etsin_qvain_fd_rems_enabled }}'
+      fd_rems_host: '{{ etsin_qvain_fd_rems_host }}'
+      fd_rems_api_key: '{{ etsin_qvain_fd_rems_api_key }}'
+
+      # Fairdata SSO variables
+      # ----------------------
+      sso_key: '{{ etsin_qvain_sso_key | default("secret") }}'
+      sso_enabled: '{{ etsin_qvain_sso_enabled }}'
+      sso_prefix: '{{ etsin_qvain_sso_prefix }}'
+      sso_host: '{{ etsin_qvain_sso_host }}'
+
+      # Metrics URL
+      # ----------------------
+      matomo_url: '{{ etsin_qvain_matomo_url }}'
+
+      # Flags
+      # ----------------------
+      flags: '{{ etsin_qvain_flags }}'
+
+      # Nginx
+      # ----------------------
+      nginx_es_credentials_username: '{{ etsin_qvain_nginx_es_credentials_username }}'
+      nginx_es_credentials_password: '{{ etsin_qvain_nginx_es_credentials_password }}'

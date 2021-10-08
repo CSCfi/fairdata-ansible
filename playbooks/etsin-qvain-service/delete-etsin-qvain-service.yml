@@ -1,0 +1,14 @@
+---
+- name: Delete Etsin-Qvain Service
+  hosts: etsinqvainappservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-etsin-qvain
+    vars:
+      prepare_application: False
+      deploy_application: False
+      run_tests: False
+      configure_proxy: False
+      delete_deployment: True
+      delete_etsin_qvain_deployment: True
+      delete_etsin_search_deployment: False

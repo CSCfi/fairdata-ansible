@@ -4,3 +4,4 @@
 - import_playbook: metax-service/setup-metax-service.yml
 - import_playbook: ida-service/setup-ida-service.yml
 - import_playbook: download-service/setup-download-service.yml
+- import_playbook: etsin-qvain-service/setup-etsin-qvain-service.yml

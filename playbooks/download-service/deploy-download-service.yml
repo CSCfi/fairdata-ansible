@@ -28,3 +28,5 @@
       application_service_metax_pass: '{{ download_application_service_metax_pass }}'
       celeryd_min_workers: '{{ download_celeryd_min_workers | default(1) }}'
       celeryd_max_workers: '{{ download_celeryd_max_workers | default(10) }}'
+      gunicorn_workers: '{{ download_gunicorn_workers | default(1) }}'
+      gunicorn_threads: '{{ download_gunicorn_threads | default(4) }}'

@@ -3,6 +3,11 @@
   src: https://github.com/elastic/ansible-elasticsearch.git
   version: v7.10.2
   trackbranch: v7.10.2
+- name: ansible-elasticsearch-old-csc-forked-version
+  scm: git
+  src: https://github.com/CSCfi/ansible-elasticsearch.git
+  version: etsin-qvain
+  trackbranch: etsin-qvain
 - name: anxs.postgresql
   scm: git
   src: https://github.com/ANXS/postgresql
@@ -26,6 +31,11 @@
 - name: fairdata-ansible-ida
   scm: git
   src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-ida.git
+  version: staging
+  trackbranch: staging
+- name: fairdata-ansible-etsin-qvain
+  scm: git
+  src: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-ansible-etsin-qvain.git
   version: staging
   trackbranch: staging
 - name: fairdata-ansible-mounts

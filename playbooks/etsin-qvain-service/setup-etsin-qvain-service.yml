@@ -1,0 +1,6 @@
+---
+- import_playbook: prepare-etsin-qvain-app-servers.yml
+- import_playbook: prepare-etsin-qvain-data-servers.yml
+- import_playbook: deploy-etsin-qvain-service.yml
+- import_playbook: test-etsin-qvain-service.yml
+  when: etsin_qvain_run_tests | default(True)
