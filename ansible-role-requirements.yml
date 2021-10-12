@@ -16,55 +16,55 @@
 - name: fairdata-ansible-download-service
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-download-service.git
-  version: stable
-  trackbranch: stable
+  version: master
+  trackbranch: master
 - name: fairdata-ansible-httpd
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-httpd.git
-  version: stable
-  trackbranch: stable
+  version: master
+  trackbranch: master
 - name: fairdata-ansible-metax
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-metax.git
-  version: stable
-  trackbranch: stable
+  version: master
+  trackbranch: master
 - name: fairdata-ansible-ida
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-ida.git
-  version: stable
-  trackbranch: stable
+  version: master
+  trackbranch: master
 - name: fairdata-ansible-mounts
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-mounts.git
-  version: stable
-  trackbranch: stable
+  version: master
+  trackbranch: master
 - name: fairdata-ansible-nginx
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-nginx.git
-  version: stable
-  trackbranch: stable
+  version: master
+  trackbranch: master
 - name: fairdata-ansible-php
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-php.git
-  version: stable
-  trackbranch: stable
+  version: master
+  trackbranch: master
 - name: fairdata-ansible-python
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-python.git
-  version: stable
-  trackbranch: stable
+  version: master
+  trackbranch: master
 - name: fairdata-ansible-rabbitmq
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-rabbitmq.git
-  version: stable
-  trackbranch: stable
+  version: master
+  trackbranch: master
 - name: fairdata-ansible-redis
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-redis.git
-  version: stable
-  trackbranch: stable
+  version: master
+  trackbranch: master
 - name: fairdata-ansible-sso
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-sso.git
-  version: stable
-  trackbranch: stable
+  version: master
+  trackbranch: master
