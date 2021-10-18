@@ -78,7 +78,6 @@
       download_api_v2_enabled: '{{ etsin_qvain_download_api_v2_enabled }}'
       download_api_v2_host: '{{ etsin_qvain_download_api_v2_host }}'
       download_api_v2_port: '{{ etsin_qvain_download_api_v2_port }}'
-      download_api_v2_user: '{{ etsin_qvain_download_api_v2_user }}'
       download_api_v2_password: '{{ etsin_qvain_download_api_v2_password }}'
       download_api_v2_public_host: '{{ etsin_qvain_download_api_v2_public_host }}'
       download_api_v2_public_port: '{{ etsin_qvain_download_api_v2_public_port }}'
