@@ -3,10 +3,12 @@
   hosts: downloadservers
   remote_user: '{{ deployer }}'
   roles:
-  - role: fairdata-ansible-mounts
-    vars:
-      ext4_mounts: '{{ download_ext4_mounts | default([]) }}'
-      bind_mounts: '{{ download_bind_mounts | default([]) }}'
+  # This task has been disabled until further notice 
+  # due to different behavior on different host systems
+  # - role: fairdata-ansible-mounts
+  #  vars:
+  #    ext4_mounts: '{{ download_ext4_mounts | default([]) }}'
+  #    bind_mounts: '{{ download_bind_mounts | default([]) }}'
   - role: fairdata-ansible-rabbitmq
     vars:
       nodename: '{{ rabbitmq_nodename | default("rabbit") }}'
