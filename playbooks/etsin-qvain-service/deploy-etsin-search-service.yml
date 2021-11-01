@@ -18,8 +18,6 @@
       # ~~~~~~~~~~~~~~~~~~~~~
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
       python_virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
-      metax_qvain_api_password: '{{ metax_application_qvain_user_password | default("not_used") }}'
-      metax_api_password: '{{ metax_application_etsin_user_password | default("not_used") }}'
 
       # Repository variables
       # ~~~~~~~~~~~~~~~~~~~~~
