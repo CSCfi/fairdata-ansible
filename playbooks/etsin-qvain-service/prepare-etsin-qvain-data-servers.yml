@@ -98,6 +98,7 @@
       app_log_level: '{{ etsin_qvain_app_log_level }}'
       data_log_level: '{{ etsin_qvain_data_log_level }}'
       app_debug_mode: '{{ etsin_qvain_app_debug_mode }}'
+      deployment_environment_id: '{{ etsin_qvain_deployment_environment_id }}'
 
       # Mail variables
       # ~~~~~~~~~~~~~~~~~~~~~
