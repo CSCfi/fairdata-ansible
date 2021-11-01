@@ -35,9 +35,9 @@
 
       # Repository variables
       # ~~~~~~~~~~~~~~~~~~~~~
-      repo_url_app: '{{ etsin_qvain_repo_url }}'
+      repo_url_app: '{{ etsin_qvain_repo_url | default("https://github.com/CSCfi/fairdata-etsin-qvain.git")}}'
       repo_version_app: '{{ etsin_qvain_repo_version | default("master") }}'
-      search_repo_url: '{{ etsin_search_repo_url }}'
+      search_repo_url: '{{ etsin_search_repo_url | default("https://github.com/CSCfi/fairdata-etsin-search.git")}}'
       repo_version_data: '{{ etsin_search_repo_version | default("master") }}'
 
       # Secret key
