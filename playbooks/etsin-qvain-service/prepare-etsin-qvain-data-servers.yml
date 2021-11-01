@@ -92,9 +92,12 @@
       search_repo_url: '{{ etsin_search_repo_url | default("https://github.com/CSCfi/fairdata-etsin-search.git")}}'
       repo_version_data: '{{ etsin_search_repo_version | default("master") }}'
 
-      # Secret key
+      # Misc variables
       # ~~~~~~~~~~~~~~~~~~~~~
       secret_key: '{{ etsin_qvain_secret_key }}'
+      app_log_level: '{{ etsin_qvain_app_log_level }}'
+      data_log_level: '{{ etsin_qvain_data_log_level }}'
+      app_debug_mode: '{{ etsin_qvain_app_debug_mode }}'
 
       # Mail variables
       # ~~~~~~~~~~~~~~~~~~~~~
