@@ -18,6 +18,11 @@
   src: https://github.com/CSCfi/fairdata-ansible-download-service.git
   version: master
   trackbranch: master
+- name: fairdata-ansible-etsin-qvain
+  scm: git
+  src: https://github.com/CSCfi/fairdata-ansible-etsin-qvain.git
+  version: master
+  trackbranch: master
 - name: fairdata-ansible-httpd
   scm: git
   src: https://github.com/CSCfi/fairdata-ansible-httpd.git
