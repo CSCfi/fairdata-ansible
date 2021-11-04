@@ -13,6 +13,7 @@
       repo_url: '{{ sso_repo_url | default("https://github.com/cscfi/fairdata-sso") }}'
       repo_version: '{{ sso_repo_version | default("master") }}'
       repo_dest_root: '{{ sso_repo_dest_root | default("/opt") }}'
+      application_flask_env:  '{{ sso_application_flask_env | default("production") }}'
       application_environment: '{{ sso_application_environment | default("PRODUCTION") }}'
       application_debug: '{{ sso_application_debug | default("false") }}'
       application_fdwe_url: '{{ sso_application_fdwe_url | default("https://matomo.fairdata.fi/fdwe.js") }}'
