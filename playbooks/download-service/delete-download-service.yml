@@ -10,6 +10,7 @@
       configure_nginx: True
       delete_deployment: True
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
+      host_domain_name: '{{ download_host_domain_name | default("ida.fairdata.fi")}}'
       deployment_fqdn: '{{ deployment_name }}.{{ instance_domain }}'
       virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
       repo_install_method: '{{ download_repo_install_method | default("pull") }}'

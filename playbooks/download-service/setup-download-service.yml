@@ -2,4 +2,4 @@
 - import_playbook: prepare-download-service.yml
 - import_playbook: deploy-download-service.yml
 - import_playbook: update-proxyservers.yml
-  when: download_configure_nginx | default(True)
+  when: download_configure_nginx_conf_d | default(True)

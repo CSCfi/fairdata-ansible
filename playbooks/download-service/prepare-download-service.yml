@@ -24,13 +24,13 @@
             write_priv: .*
   - role: fairdata-ansible-nginx
     vars:
-      configure_nginx: '{{ download_configure_nginx | default(True) }}'
+      configure_nginx: '{{ download_configure_nginx | default(False) }}'
       install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
       ssl_wildcard_certificate_src: '{{ fairdata_ssl_wildcard_certificate_src | default("") }}'
       ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'
       ssl_wildcard_certificate_key_src: '{{ fairdata_ssl_wildcard_certificate_key_src | default("") }}'
       ssl_wildcard_certificate_key_dest: '{{ fairdata_ssl_wildcard_certificate_key_dest | default("") }}'
-    when: download_configure_nginx | default(True)
+    when: download_configure_nginx | default(False)
   - role: fairdata-ansible-python
     vars:
       install_method: '{{ fairdata_python_install_method | default("none") }}'
