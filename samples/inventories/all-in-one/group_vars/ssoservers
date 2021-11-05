@@ -2,6 +2,7 @@
 # Application specific variables
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 sso_application_environment: 'TEST'
+sso_application_flask_env: 'production'
 sso_application_debug: 'true'
 sso_application_fdwe_url: 'https://matomo.example.com/fdwe.js'
 sso_application_aai_proxy: 'auth.example.com'
