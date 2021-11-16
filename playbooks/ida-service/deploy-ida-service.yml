@@ -57,6 +57,9 @@
 
       # Application variables
       # ~~~~~~~~~~~~~~~~~~~~~
+      application_environment: '{{ ida_application_environment | default("TEST")}}'
+      application_debug: '{{ ida_application_debug | default("true")}}'
+      application_no_flush_after_tests: '{{ ida_application_flush_after_tests | default("true")}}'
       application_admin_user: '{{ ida_application_admin_user | default("admin") }}'
       application_admin_pass: '{{ ida_application_admin_pass | default("test") }}'
       application_project_user_pass: '{{ ida_application_project_user_pass | default("test") }}'
