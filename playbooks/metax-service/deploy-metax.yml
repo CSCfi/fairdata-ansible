@@ -39,6 +39,8 @@
       gunicorn_workers: '{{ metax_gunicorn_workers | default("1") }}'
       gunicorn_threads: '{{ metax_gunicorn_threads | default("4") }}'
       # Application
+      application_user: '{{ metax_application_user | default("metax")}}'
+      application_group: '{{ metax_application_group | default("metax")}}'
       application_debug: '{{ metax_application_debug | default("False") }}'
       application_django_env: '{{ metax_application_django_env | default("test") }}'
       application_django_secret_key: '{{ metax_application_django_secret_key | default("secret") }}'
