@@ -22,6 +22,7 @@
     when: ida_configure_proxy | default(True)
   - role: fairdata-ansible-nginx
     vars:
+      configure_modular_nginx: False
       install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
       ssl_wildcard_certificate_src: '{{ fairdata_ssl_wildcard_certificate_src | default("") }}'
       ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'
