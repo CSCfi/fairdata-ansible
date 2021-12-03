@@ -30,7 +30,6 @@
       ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'
       ssl_wildcard_certificate_key_src: '{{ fairdata_ssl_wildcard_certificate_key_src | default("") }}'
       ssl_wildcard_certificate_key_dest: '{{ fairdata_ssl_wildcard_certificate_key_dest | default("") }}'
-    when: download_configure_nginx | default(False)
   - role: fairdata-ansible-python
     vars:
       install_method: '{{ fairdata_python_install_method | default("none") }}'
@@ -43,4 +42,3 @@
     vars:
       prepare_application: True
       deploy_application: False
-      configure_nginx: False
