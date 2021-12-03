@@ -19,6 +19,7 @@
       auth_password:  '{{ metax_redis_password | default("pass") }}'
   - role: fairdata-ansible-nginx
     vars:
+      configure_modular_nginx: False
       install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
       ssl_wildcard_certificate_src: '{{ fairdata_ssl_wildcard_certificate_src | default("") }}'
       ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'

@@ -13,7 +13,7 @@
       rpm_dest: '{{ fairdata_python_rpm_dest | default("") }}'
   - role: fairdata-ansible-nginx
     vars:
-      configure_nginx: '{{ sso_configure_nginx | default(True) }}'
+      configure_modular_nginx: False
       install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
       ssl_wildcard_certificate_src: '{{ fairdata_ssl_wildcard_certificate_src | default("") }}'
       ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'

@@ -24,7 +24,7 @@
             write_priv: .*
   - role: fairdata-ansible-nginx
     vars:
-      configure_nginx: '{{ download_configure_nginx | default(False) }}'
+      configure_modular_nginx: True
       install_ssl_wildcard_certificate: '{{ fairdata_install_ssl_wildcard_certificate | default(False) }}'
       ssl_wildcard_certificate_src: '{{ fairdata_ssl_wildcard_certificate_src | default("") }}'
       ssl_wildcard_certificate_dest: '{{ fairdata_ssl_wildcard_certificate_dest | default("") }}'
