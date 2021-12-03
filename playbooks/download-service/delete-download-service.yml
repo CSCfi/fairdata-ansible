@@ -7,7 +7,6 @@
     vars:
       prepare_application: False
       deploy_application: True
-      configure_nginx: True
       delete_deployment: True
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
       host_domain_name: '{{ download_host_domain_name | default("ida.fairdata.fi")}}'
