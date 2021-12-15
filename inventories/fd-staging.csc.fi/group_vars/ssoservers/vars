@@ -1,0 +1,16 @@
+---
+# Repository variables
+# ~~~~~~~~~~~~~~~~~~~~
+sso_repo_url: 'ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-sso-dev.git'
+sso_repo_version: 'staging'
+
+# Application variables
+# ~~~~~~~~~~~~~~~~~~~~~
+sso_application_environment: 'TEST'
+sso_application_flask_env: 'development'
+sso_application_debug: 'true'
+sso_application_fdwe_url: 'https://matomo.fd-test.csc.fi/fdwe.js'
+sso_application_fdwe_matomo_api: 'https://matomo.fd-test.csc.fi/fdwe.php'
+sso_application_fdwe_site_id: 15
+sso_application_aai_proxy: 'fd-auth-dev.csc.fi'
+sso_saml_settings_file: '{{ file_source }}/sso.fd-staging.csc.fi.json'

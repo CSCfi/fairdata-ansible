@@ -1,0 +1,34 @@
+---
+# Miscellaneous variables
+# ~~~~~~~~~~~~~~~~~~~~~~~
+deployer: '{{ vault_deployer }}'
+repo_source: '/opt'
+file_source: '{{ repo_source }}/fairdata-ansible/inventories/fd-staging.csc.fi/files'
+
+# Domain specific variables
+# ~~~~~~~~~~~~~~~~~~~~~~~~~
+fairdata_domain: 'fd-staging.csc.fi'
+fairdata_host_overrides:
+  - fqdn: 'ida.fd-dev.csc.fi'
+    address: '172.29.236.20'
+  - fqdn: 'metax.fd-dev.csc.fi'
+    address: '172.29.236.20'
+  - fqdn: 'sso.fd-dev.csc.fi'
+    address: '172.29.236.20'
+  - fqdn: 'download.fd-dev.csc.fi'
+    address: '172.29.236.20'
+
+# Python specific variables
+# ~~~~~~~~~~~~~~~~~~~~~~~~~
+fairdata_python_install_method: 'dist'
+fairdata_python_rpm_src: '{{ repo_source }}/ida-service-internals/rpm/fairdata-python3/packages/fairdata-python3-1.0.3-20200929.x86_64.rpm'
+fairdata_python_rpm_dest: '/opt/fairdata-python3-1.0.3-20200929.x86_64.rpm'
+fairdata_python_virtualenv_command: '/opt/fairdata/python3/bin/virtualenv'
+
+# TLS variables
+# ~~~~~~~~~~~~~
+fairdata_install_ssl_wildcard_certificate: True
+fairdata_ssl_wildcard_certificate_src: '{{ file_source }}/fd-staging.csc.fi.crt.pem'
+fairdata_ssl_wildcard_certificate_dest: '/etc/pki/tls/certs/fd-staging.csc.fi.crt.pem'
+fairdata_ssl_wildcard_certificate_key_src: '{{ file_source }}/fd-staging.csc.fi.key.pem'
+fairdata_ssl_wildcard_certificate_key_dest: '/etc/pki/tls/private/fd-staging.csc.fi.key.pem'

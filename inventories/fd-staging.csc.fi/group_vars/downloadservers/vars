@@ -1,0 +1,39 @@
+---
+# Volume mount variables
+# ~~~~~~~~~~~~~~~~~~~~~~
+# download_ext4_mounts:
+# - device: '/dev/disk/by-id/virtio-b8dc0cfb-9148-4420-8'
+#   mountpoint: '/mnt/{{ download_directory_ida_storage_root }}'
+# download_bind_mounts:
+# - dir: '/mnt/storage_vol01/ida'
+#   mountpoint: '{{ download_application_ida_storage_root }}'
+#   user: 'download'
+
+# Repository variables
+# ~~~~~~~~~~~~~~~~~~~~
+download_repo_url: 'ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-download-service.git'
+download_repo_version: 'staging'
+
+# RabbitMQ variables
+# ~~~~~~~~~~~~~~~~~~
+download_rabbitmq_pass: '{{ vault_download_rabbitmq_pass }}'
+
+# Directory variables
+# ~~~~~~~~~~~~~~~~~~~~~
+download_directory_cache_root: '/mnt/download-cache'
+download_directory_ida_storage_root: '/mnt/download-ida-storage'
+
+# Application variables
+# ~~~~~~~~~~~~~~~~~~~~~
+download_application_service_metax_url: 'https://metax.demo.fairdata.fi/'
+download_application_service_metax_user: '{{ vault_download_application_service_metax_user }}'
+download_application_service_metax_pass: '{{ vault_download_application_service_metax_pass }}'
+download_application_environment: 'development'
+download_application_jwt_secret: '{{ vault_download_application_jwt_secret }}'
+
+# Nginx variables
+# ~~~~~~~~~~~~~~~
+download_configure_nginx: True
+download_nginx_internal_port: 443
+download_nginx_ssl_certificate: '/etc/pki/tls/certs/fd-staging.csc.fi.crt.pem'
+download_nginx_ssl_certificate_key: '/etc/pki/tls/private/fd-staging.csc.fi.key.pem'
