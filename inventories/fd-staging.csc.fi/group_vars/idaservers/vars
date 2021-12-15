@@ -1,0 +1,55 @@
+---
+# IDA control variables
+# ~~~~~~~~~~~~~~~~~~~~~
+ida_use_nginx: True
+
+# Directory variables
+# ~~~~~~~~~~~~~~~~~~~
+ida_directory_data1_root: '/var/lib/storage_vol01'
+ida_directory_data2_root: '/var/lib/storage_vol02'
+
+# Rabbitmq variables
+# ~~~~~~~~~~~~~~~~~~
+ida_rabbitmq_host: '172.29.236.11'
+
+# Redis variables
+# ~~~~~~~~~~~~~~~
+ida_redis_host: '172.29.236.11'
+
+# Database variables
+# ~~~~~~~~~~~~~~~~~~
+ida_db_host: '172.29.236.11'
+ida_postgresql_listen_addresses:
+  - '*'
+ida_database_address: '172.29.236.20/32'
+
+# Repo variables
+# ~~~~~~~~~~~~~~
+ida_repo_url: 'ssh://git@ci.fd-staging.csc.fi:10022/fairdata/fairdata-ida.git'
+ida_repo_version: 'staging'
+
+# IDA application variables
+# ~~~~~~~~~~~~~~~~~~~~~~~~~
+ida_application_storage_candidates:
+  - '"/var/lib/storage_vol01"'
+  - '"/var/lib/storage_vol02"'
+ida_metax_base_url: 'https://metax.fd-staging.csc.fi/'
+
+# IDA SSO variables
+# ~~~~~~~~~~~~~~~~~~~
+ida_sso_api_url: 'https://sso.fd-staging.csc.fi'
+ida_sso_api_domain: 'fd-staging.csc.fi'
+ida_sso_authentication: true
+ida_sso_password: '{{ vault_ida_sso_password }}'
+ida_sso_key: '{{ vault_ida_sso_key }}'
+
+# IDA Httpd variables
+# ~~~~~~~~~~~~~~~~~~~
+ida_httpd_http_port: 800
+ida_httpd_https_port: 4433
+ida_httpd_https_ida_pas_port: 44433
+
+# IDA Nginx variables
+# ~~~~~~~~~~~~~~~~~~~
+ida_nginx_https_port: 443
+ida_nginx_https_ida_pas_port: 4443
