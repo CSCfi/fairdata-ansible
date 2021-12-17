@@ -173,6 +173,12 @@
       # ----------------------
       matomo_url: '{{ etsin_qvain_matomo_url }}'
 
+      # LDAP variables
+      # ----------------------
+      ldap_host: '{{ etsin_qvain_ldap_host | default("127.0.0.1")}}'
+      ldap_bind: '{{ etsin_qvain_ldap_bind | default("False")}}'
+      ldap_password: '{{ etsin_qvain_ldap_password | default("not_used")}}'
+
       # Flags
       # ----------------------
       flags: '{{ etsin_qvain_flags }}'
