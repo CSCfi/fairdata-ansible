@@ -5,8 +5,74 @@ etsin_qvain_sso_key: '{{ vault_etsin_qvain_sso_key }}'
 # More variables
 # --------------
 fairdata_domain: 'fd-staging.csc.fi'
+etsin_qvain_deployment_environment_id: 'staging'
 
-# Repo variables
+## Added missing variables
+etsin_qvain_metax_qvain_api_host: 'metax.{{ fairdata_domain }}'
+etsin_qvain_memcached_host: 'localhost'
+etsin_qvain_memcached_port: '11211'
+ 
+etsin_qvain_metax_qvain_api_user: '{ vault_etsin_qvain_metax_qvain_api_user }'
+etsin_qvain_metax_qvain_api_password: '{ vault_etsin_qvain_metax_qvain_api_password }'
+
+etsin_qvain_metax_api_user: '{ vault_etsin_qvain_metax_api_user }'
+etsin_qvain_metax_api_password: '{ vault_etsin_qvain_metax_api_user }'
+etsin_qvain_metax_api_verify_ssl: 'True'
+etsin_qvain_metax_api_host: 'metax.fd-staging.csc.fi'
+etsin_qvain_metax_rabbitmq_hosts: [
+    "195.148.21.42"
+]
+
+etsin_qvain_metax_rabbitmq_exchange: 'datasets'
+etsin_qvain_metax_rabbitmq_port: '5672'
+etsin_qvain_metax_rabbitmq_password: '{ vault_etsin_qvain_metax_rabbitmq_password }'
+etsin_qvain_metax_rabbitmq_user: '{ vault_etsin_qvain_metax_rabbitmq_user }'
+etsin_qvain_metax_rabbitmq_vhost: '{ vault_etsin_qvain_metax_rabbitmq_user }'
+
+etsin_qvain_sso_enabled: 'True'
+etsin_qvain_sso_prefix: 'fd_staging_csc_fi'
+etsin_qvain_sso_host: 'https://sso.fd-staging.csc.fi'
+etsin_qvain_sso_cookie_domain: 'fd-staging.csc.fi'
+
+etsin_qvain_mail_server: 'smtp.sdn.csc.fi'
+etsin_qvain_mail_port: 25
+etsin_qvain_mail_username: '{ vault_etsin_qvain_mail_username }'
+etsin_qvain_mail_password: '{ vault_etsin_qvain_mail_password }'
+etsin_qvain_mail_default_sender: noreply@fairdata.fi
+
+etsin_qvain_metax_qvain_api_verify_ssl: 'True'
+etsin_qvain_matomo_url: 'https://metrics.fairdata.fi/fdwe.js'
+
+etsin_qvain_download_api_v2_enabled: 'False'
+etsin_qvain_download_api_v2_host: 'ida.fd-staging.csc.fi'
+etsin_qvain_download_api_v2_port: '4431'
+etsin_qvain_download_api_v2_auth_token: '{ vault_etsin_qvain_download_api_v2_auth_token }'
+etsin_qvain_download_api_v2_public_host: 'ida.fd-staging.csc.fi'
+etsin_qvain_download_api_v2_public_port: '4430'
+
+etsin_qvain_fd_rems_enabled: 'True'
+etsin_qvain_fd_rems_host: 'vm1446.kaj.pouta.csc.fi'
+etsin_qvain_fd_rems_api_key: '{ vault_etsin_qvain_fd_rems_api_key }'
+
+etsin_qvain_secret_key: '{ vault_etsin_qvain_secret_key }'
+etsin_qvain_app_log_level: 'DEBUG'
+etsin_qvain_data_log_level: 'DEBUG'
+etsin_qvain_app_debug_mode: 'True'
+
+etsin_qvain_elasticsearch_use_ssl: 'false'
+etsin_qvain_flags:
+  DOWNLOAD_API_V2.EMAIL.BACKEND: true
+  DOWNLOAD_API_V2.EMAIL.FRONTEND: true
+  DOWNLOAD_API_V2.OPTIONS: true
+  UI.BOTTOM_SUBMIT_BUTTONS: true
+  UI.SHOW_UNSUPPORTED: false
+  UI.NEW_DATASETS_VIEW: false
+  PERMISSIONS.SHARE_PROJECT: false
+  PERMISSIONS.WRITE_LOCK: false
+  MATOMO_TRACKING: true
+  CROSSREF_API: false
+etsin_qvain_elasticsearch_port: '9200'
+# es
 # ~~~~~~~~~~~~~~
 etsin_qvain_repo_url: 'ssh://git@ci.fd-staging.csc.fi:10022/fairdata/fairdata-etsin-qvain.git'
 etsin_qvain_repo_version: 'staging'
