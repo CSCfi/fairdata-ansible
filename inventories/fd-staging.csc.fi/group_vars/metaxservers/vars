@@ -24,7 +24,7 @@ metax_application_oai_repository_name: 'Metax (staging)'
 
 # Rems
 metax_application_rems_enabled: 'True'
-metax_application_rems_api_key: 55
+metax_application_rems_api_key: '{ metax_application_rems_api_key }'
 metax_application_rems_base_url: 'https://vm1446.kaj.pouta.csc.fi/api'
 metax_application_rems_metax_user: '{{ vault_metax_application_rems_metax_user }}'
 metax_application_rems_reporter_user: '{{ vault_metax_application_rems_reporter_user }}'
@@ -73,7 +73,7 @@ metax_application_download_user_password: '{{ vault_metax_application_download_u
 
 # Database variables
 # ~~~~~~~~~~~~~~~~~~
-# metax_database_allowed_subnet: '172.29.236.0/22'
+metax_database_allowed_subnet: '172.29.236.0/22'
 # postgres_listen_addresses: '0.0.0.0'
 metax_database_host: '172.29.236.11'
 
