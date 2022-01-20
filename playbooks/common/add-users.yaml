@@ -1,0 +1,44 @@
+---
+- name: Add users to servers
+  gather_facts: false
+  remote_user: '{{ deployer }}'
+  become: true
+  hosts: all
+  vars:
+    usernames: # add usernames as list
+      -
+#      - "{{ fd_users | flatten }}"  # uncomment to do add fairdata users
+  tasks:
+
+    - name: Create user
+      user: 
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ usernames }}"
+      tags: create
+      
+    - name: Add SSH keys
+      block:
+        - name: Add SSH key from central repository
+          authorized_key:
+            user: "{{ item }}"
+            state: present
+            key: "{{ user_ssh_key_url }}/{{ item }}.pub"
+          with_items: "{{ usernames }}"
+       
+      rescue:
+        - name: Add SSH key from file
+          authorized_key:
+            user: "{{ item }}"
+            state: present
+            key: "{{ lookup('file', '{{ repo_source }}/fairdata/ssh-keys/{{ item }}.pub')}}"
+          with_items: "{{ usernames }}"
+
+    - name: Add user to sudoers
+      user:
+        name: "{{ item }}"
+        groups: wheel
+        append: yes
+      with_items: "{{ usernames }}"
+      tags: sudo
+...
