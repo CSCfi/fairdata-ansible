@@ -64,6 +64,7 @@
       application_rems_reporter_user: '{{ metax_application_rems_reporter_user | default("reporter@rems.example.com") }}'
       application_rems_auto_approver: '{{ metax_application_rems_auto_approver | default("not-used") }}'
       application_rems_form_id: '{{ metax_application_rems_form_id | default("555") }}'
+      application_rems_organization: '{{ metax_application_rems_organization | default("undefined-rems-org") }}'
       # Users
       application_api_users: '{{ metax_application_api_users | default([]) }}'
       # Permissions

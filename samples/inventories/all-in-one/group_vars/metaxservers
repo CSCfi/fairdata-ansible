@@ -19,6 +19,7 @@ metax_application_rems_metax_user: 'metax@example.com'
 metax_application_rems_reporter_user: 'reporter@example.com'
 metax_application_rems_auto_approver: 'not-used'
 metax_application_rems_form_id: 1
+metax_application_rems_organization: 'undefined-rems-org'
 
 # OIDC variables
 # ~~~~~~~~~~~~~~
