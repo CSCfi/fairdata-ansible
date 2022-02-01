@@ -12,11 +12,12 @@
       dest: "{{ repo_source }}/fairdata/fairdata-devops"
       force: yes
     delegate_to: 127.0.0.1
+    run_once: True
     tags: get_userlist
      
   - name: Get usernames from file
     include_vars:
-      file: "{{ repo_source }}/fairdata/users/remove_userlist.yaml"
+      file: "{{ repo_source }}/fairdata/fairdata-devops/users/remove_userlist.yaml"
       name: usernames
 
   - name: Remove user
