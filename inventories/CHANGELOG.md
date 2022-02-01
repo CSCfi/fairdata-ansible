@@ -1,5 +1,8 @@
 # Fairdata Ansible non-production vaulted inventory changelog
 
+## [1.0.2]
+
+Added Nginx elasticsearch credentials to Etsin-Qvain / staging vault
 
 ## [1.0.1]
 
