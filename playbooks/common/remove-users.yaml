@@ -1,0 +1,29 @@
+---
+- name: Remove users
+  gather_facts: false
+  remote_user: '{{ deployer }}'
+  become: true
+  hosts: all
+  tasks:
+  
+  - name: Get userlist from GitLab
+    git:
+      repo: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-devops.git
+      dest: "{{ repo_source }}/fairdata/fairdata-devops"
+      force: yes
+    delegate_to: 127.0.0.1
+    run_once: True
+    tags: get_userlist
+     
+  - name: Get usernames from file
+    include_vars:
+      file: "{{ repo_source }}/fairdata/fairdata-devops/users/remove_userlist.yaml"
+      name: usernames
+
+  - name: Remove user
+    user:
+      name: "{{ item }}"
+      state: absent
+      remove: yes
+    with_items: "{{ usernames.user }}"
+...

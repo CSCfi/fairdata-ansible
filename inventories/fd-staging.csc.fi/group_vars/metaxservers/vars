@@ -1,0 +1,112 @@
+---
+# Application variables
+# ~~~~~~~~~~~~~~~~~~~~~
+
+# Auth
+metax_application_auth_server_logout_url: 'https://fd-auth-dev.csc.fi/idp/profile/Logout'
+
+# Datacite
+metax_application_datacite_username: '{{ vault_metax_application_datacite_username }}'
+metax_application_datacite_password: '{{ vault_metax_application_datacite_password }}'
+metax_application_datacite_prefix: '10.23729'
+metax_application_datacite_url: 'https://mds.test.datacite.org'
+
+# Django
+metax_application_debug: True
+metax_application_django_env: 'staging'
+metax_application_django_secret_key: '{{ vault_metax_application_django_secret_key }}'
+
+# Logging
+metax_application_logging_level: 'DEBUG'
+
+# OAI
+metax_application_oai_repository_name: 'Metax (staging)'
+
+# Rems
+metax_application_rems_enabled: 'True'
+metax_application_rems_api_key: '{ metax_application_rems_api_key }'
+metax_application_rems_base_url: 'https://vm1446.kaj.pouta.csc.fi/api'
+metax_application_rems_metax_user: '{{ vault_metax_application_rems_metax_user }}'
+metax_application_rems_reporter_user: '{{ vault_metax_application_rems_reporter_user }}'
+metax_application_rems_auto_approver: 'not-used'
+metax_application_rems_form_id: 3
+
+# API Users
+# ~~~~~~~~~
+# See group_vars for 'all' for passwords
+metax_application_api_users:
+  - username: '{{ vault_metax_application_metax_username }}'
+    password: '{{ vault_metax_application_metax_user_password }}'
+  - username: '{{ vault_metax_application_qvain_username }}'
+    password: '{{ vault_metax_application_qvain_user_password }}'
+  - username: '{{ vault_metax_application_ida_username }}'
+    password: '{{ vault_metax_application_ida_user_password }}'
+  - username: '{{ vault_metax_application_tpas_username }}'
+    password: '{{ vault_metax_application_tpas_user_password }}'
+  - username: '{{ vault_metax_application_etsin_username }}'
+    password: '{{ vault_metax_application_etsin_user_password }}'
+  - username: '{{ vault_metax_application_fds_username }}'
+    password: '{{ vault_metax_application_fds_user_password }}'
+  - username: '{{ vault_metax_application_qvain_light_username }}'
+    password: '{{ vault_metax_application_qvain_light_user_password }}'
+  - username: '{{ vault_metax_application_ttv_username }}'
+    password: '{{ vault_metax_application_ttv_user_password }}'
+  - username: '{{ vault_metax_application_download_username }}'
+    password: '{{ vault_metax_application_download_user_password }}'
+
+# Metax API users
+# ~~~~~~~~~~~~~~~
+metax_application_testaaja_consumer_password: '{{ vault_metax_application_testaaja_consumer_password }}'
+metax_application_etsin_consumer_password: '{{ vault_metax_application_etsin_consumer_password }}'
+metax_application_ttv_consumer_password: '{{ vault_metax_application_ttv_consumer_password }}'
+
+metax_application_metax_user_password: '{{ vault_metax_application_metax_user_password }}'
+metax_application_qvain_user_password: '{{ vault_metax_application_qvain_user_password }}'
+metax_application_ida_user_password: '{{ vault_metax_application_ida_user_password }}'
+metax_application_tpas_user_password: '{{ vault_metax_application_tpas_user_password }}'
+metax_application_etsin_user_password: '{{ vault_metax_application_etsin_user_password }}'
+metax_application_fds_user_password: '{{ vault_metax_application_fds_user_password }}'
+metax_application_qvain_light_user_password: '{{ vault_metax_application_qvain_light_user_password }}'
+metax_application_ttv_user_password: '{{ vault_metax_application_ttv_user_password }}'
+metax_application_download_user_password: '{{ vault_metax_application_download_user_password }}'
+
+
+# Database variables
+# ~~~~~~~~~~~~~~~~~~
+metax_database_allowed_subnet: '172.29.236.0/22'
+# postgres_listen_addresses: '0.0.0.0'
+metax_database_host: '172.29.236.11'
+
+
+# Elasticsearch variables
+# ~~~~~~~~~~~~~~~~~~~~~~~
+metax_elasticsearch_hosts: '172.29.236.11'
+elasticsearch_bind_host: '0.0.0.0'
+
+
+# OIDC variables
+# ~~~~~~~~~~~~~~
+metax_oidc_auth_server_url: 'https://fd-auth-dev.csc.fi'
+metax_oidc_provider_metadata_url: '{{ oidc_auth_server_url }}/.well-known/openid-configuration'
+metax_oidc_auth_verify_jwks_uri: '{{ oidc_auth_server_url }}/oidc/keyset.jwk'
+metax_oidc_client_id: 'fairdata-metax-staging'
+metax_oidc_client_secret: '{{ vault_metax_oidc_client_secret }}'
+metax_oidc_crypto_passphrase: '{{ vault_metax_oidc_crypto_passphrase }}'
+metax_oidc_id_token_iat_slack: '3600'
+
+
+# RabbitMQ variables
+# ~~~~~~~~~~~~~~~~~~
+metax_rabbitmq_hosts: '172.29.236.11'
+
+
+# Redis variables
+# ~~~~~~~~~~~~~~~
+metax_redis_use_password: True
+metax_redis_password: '{{ vault_metax_redis_password }}'
+
+
+# Repo variables
+# ~~~~~~~~~~~~~~
+metax_repo_url: 'ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-metax.git'
+metax_repo_version: 'staging'

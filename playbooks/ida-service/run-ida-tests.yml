@@ -8,4 +8,4 @@
       prepare_application: False
       deploy_application: False
       update_proxy: False
-      run_tests: True
+      run_tests: False

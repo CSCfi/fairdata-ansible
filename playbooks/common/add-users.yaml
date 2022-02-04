@@ -1,0 +1,50 @@
+---
+- name: Add users to servers
+  gather_facts: false
+  remote_user: '{{ deployer }}'
+  become: true
+  hosts: all
+  tasks:
+    - name: Get userlist from GitLab
+      git:
+        repo: ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-devops.git
+        dest: "{{ repo_source }}/fairdata/fairdata-devops"
+        force: yes
+      delegate_to: 127.0.0.1
+      run_once: True
+      tags: get_userlist
+
+    - name: Get usernames 
+      include_vars:
+        file: "{{ repo_source }}/fairdata/fairdata-devops/users/new_userlist.yaml"
+        name: usernames
+
+    - name: Create user
+      user: 
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ usernames.user }}"
+      
+    - name: Get SSH key from repository
+      get_url:
+        url: "{{ user_ssh_key_url }}/{{ item }}.pub"
+        dest: "{{ repo_source }}/fairdata/ssh-keys/{{ item }}.pub"
+        validate_certs: false
+      with_items: "{{ usernames.user }}"
+      delegate_to: 127.0.0.1
+
+    - name: Add SSH key to server
+      authorized_key:
+        user: "{{ item }}"
+        state: present
+        key: "{{ lookup('file', '{{ repo_source }}/fairdata/ssh-keys/{{ item }}.pub')}}"
+      with_items: "{{ usernames.user }}"
+
+    - name: Add user to sudoers
+      user:
+        name: "{{ item }}"
+        groups: wheel
+        append: yes
+      with_items: "{{ usernames.user }}"
+      tags: sudo
+...

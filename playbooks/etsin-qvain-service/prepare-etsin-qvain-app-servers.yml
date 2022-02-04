@@ -38,7 +38,7 @@
       # ~~~~~~~~~~~~~~~~~~~~~
       repo_url_app: '{{ etsin_qvain_repo_url | default("https://github.com/CSCfi/fairdata-etsin-qvain.git")}}'
       repo_version_app: '{{ etsin_qvain_repo_version | default("master") }}'
-      search_repo_url: '{{ etsin_search_repo_url | default("https://github.com/CSCfi/fairdata-etsin-search.git")}}'
+      repo_url_data: '{{ etsin_search_repo_url | default("https://github.com/CSCfi/fairdata-etsin-search.git")}}'
       repo_version_data: '{{ etsin_search_repo_version | default("master") }}'
 
       # Misc variables
@@ -121,6 +121,12 @@
       # Metrics URL
       # ----------------------
       matomo_url: '{{ etsin_qvain_matomo_url }}'
+
+      # LDAP variables
+      # ----------------------
+      ldap_host: '{{ etsin_qvain_ldap_host | default("127.0.0.1")}}'
+      ldap_bind: '{{ etsin_qvain_ldap_bind | default("False")}}'
+      ldap_password: '{{ etsin_qvain_ldap_password | default("not_used")}}'
 
       # Flags
       # ----------------------
