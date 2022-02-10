@@ -10,7 +10,6 @@
       manage_application: False
       run_tests: False
       configure_proxy: '{{ etsin_qvain_configure_proxy | default(True) }}'
-      instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
 
       # Shared variables
       # ~~~~~~~~~~~~~~~~~~~~~
