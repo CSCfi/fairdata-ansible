@@ -80,9 +80,9 @@ etsin_qvain_elasticsearch_port: '9200'
 # es
 # ~~~~~~~~~~~~~~
 etsin_qvain_repo_url: 'ssh://git@ci.fd-staging.csc.fi:10022/fairdata/fairdata-etsin-qvain.git'
-etsin_qvain_repo_version: 'staging'
+etsin_qvain_repo_version: '{{ env_repo_version }}'
 etsin_search_repo_url: 'ssh://git@ci.fd-staging.csc.fi:10022/fairdata/fairdata-etsin-search.git'
-etsin_search_repo_version: 'staging'
+etsin_search_repo_version: '{{ env_repo_version }}'
 
 # Elasticsearch variables
 # -----------------------

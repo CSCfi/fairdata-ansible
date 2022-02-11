@@ -12,7 +12,7 @@
 # Repository variables
 # ~~~~~~~~~~~~~~~~~~~~
 download_repo_url: 'ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-download-service.git'
-download_repo_version: 'staging'
+download_repo_version: '{{ env_repo_version }}'
 
 # RabbitMQ variables
 # ~~~~~~~~~~~~~~~~~~
@@ -37,3 +37,8 @@ download_configure_nginx: True
 download_nginx_internal_port: 443
 download_nginx_ssl_certificate: '/etc/pki/tls/certs/fd-staging.csc.fi.crt.pem'
 download_nginx_ssl_certificate_key: '/etc/pki/tls/private/fd-staging.csc.fi.key.pem'
+
+
+# Common variables
+# ~~~~~~~~~~~~~~~
+debug: False
