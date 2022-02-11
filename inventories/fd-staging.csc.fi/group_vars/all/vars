@@ -4,6 +4,7 @@
 deployer: '{{ vault_deployer }}'
 repo_source: '/opt'
 file_source: '{{ repo_source }}/fairdata-ansible/inventories/fd-staging.csc.fi/files'
+env_repo_version: 'staging'
 
 # Domain specific variables
 # ~~~~~~~~~~~~~~~~~~~~~~~~~

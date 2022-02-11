@@ -26,7 +26,7 @@ ida_database_address: '172.29.236.20/32'
 # Repo variables
 # ~~~~~~~~~~~~~~
 ida_repo_url: 'ssh://git@ci.fd-staging.csc.fi:10022/fairdata/fairdata-ida.git'
-ida_repo_version: 'staging'
+ida_repo_version: '{{ env_repo_version }}'
 
 # IDA application variables
 # ~~~~~~~~~~~~~~~~~~~~~~~~~

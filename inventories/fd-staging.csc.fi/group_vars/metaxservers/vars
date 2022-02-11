@@ -24,7 +24,7 @@ metax_application_oai_repository_name: 'Metax (staging)'
 
 # Rems
 metax_application_rems_enabled: 'True'
-metax_application_rems_api_key: '{ metax_application_rems_api_key }'
+metax_application_rems_api_key: '{{ vault_metax_application_rems_api_key }}'
 metax_application_rems_base_url: 'https://vm1446.kaj.pouta.csc.fi/api'
 metax_application_rems_metax_user: '{{ vault_metax_application_rems_metax_user }}'
 metax_application_rems_reporter_user: '{{ vault_metax_application_rems_reporter_user }}'
@@ -109,4 +109,5 @@ metax_redis_password: '{{ vault_metax_redis_password }}'
 # Repo variables
 # ~~~~~~~~~~~~~~
 metax_repo_url: 'ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-metax.git'
-metax_repo_version: 'staging'
+repo_version: '{{ metax_repo_version }}'
+metax_repo_version: '{{ env_repo_version }}'
