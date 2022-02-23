@@ -5,7 +5,7 @@
   roles:
   - role: anxs.postgresql
     vars:
-      postgresql_version: 12.10
+      postgresql_version: 12
       postgresql_data_directory: '{{ postgres_data_directory | default("/var/lib/pgsql/12/data") }}'
       postgresql_pg_hba_custom:
       - type: '{{ metax_database_type | default("host") }}'
