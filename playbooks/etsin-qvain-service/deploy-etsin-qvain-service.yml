@@ -52,12 +52,12 @@
 
       # Metax RabbitMQ variables
       # ~~~~~~~~~~~~~~~~~~~~~
-      metax_rabbitmq_hosts: '{{ etsin_qvain_metax_rabbitmq_hosts }}'
-      metax_rabbitmq_port: '{{ etsin_qvain_metax_rabbitmq_port }}'
-      metax_rabbitmq_vhost: '{{ etsin_qvain_metax_rabbitmq_vhost }}'
-      metax_rabbitmq_exchange: '{{ etsin_qvain_metax_rabbitmq_exchange }}'
-      metax_rabbitmq_user: '{{ etsin_qvain_metax_rabbitmq_user }}'
-      metax_rabbitmq_password: '{{ etsin_qvain_metax_rabbitmq_password }}'
+      metax_rabbitmq_hosts: '{{ etsin_qvain_metax_rabbitmq_hosts }}'
+      metax_rabbitmq_port: '{{ etsin_qvain_metax_rabbitmq_port }}'
+      metax_rabbitmq_vhost: '{{ etsin_qvain_metax_rabbitmq_vhost }}'
+      metax_rabbitmq_exchange: '{{ etsin_qvain_metax_rabbitmq_exchange }}'
+      metax_rabbitmq_user: '{{ etsin_qvain_metax_rabbitmq_user }}'
+      metax_rabbitmq_password: '{{ etsin_qvain_metax_rabbitmq_password }}'
 
       # Metax API variables
       # ~~~~~~~~~~~~~~~~~~~~~
@@ -99,7 +99,7 @@
       sso_enabled: '{{ etsin_qvain_sso_enabled }}'
       sso_prefix: '{{ etsin_qvain_sso_prefix }}'
       sso_host: '{{ etsin_qvain_sso_host }}'
-      sso_cookie_domain: '{{ etsin_qvain_sso_cookie_domain }}' 
+      sso_cookie_domain: '{{ etsin_qvain_sso_cookie_domain }}'
 
       # Metrics URL
       # ----------------------
@@ -110,6 +110,8 @@
       ldap_host: '{{ etsin_qvain_ldap_host | default("127.0.0.1")}}'
       ldap_bind: '{{ etsin_qvain_ldap_bind | default("False")}}'
       ldap_password: '{{ etsin_qvain_ldap_password | default("not_used")}}'
+      ldap_user_filters: '{{ etsin_qvain_ldap_user_filters | default(omit) }}'
+      ldap_project_filters: '{{ etsin_qvain_ldap_project_filters | default(omit) }}'
 
       # Flags
       # ----------------------
