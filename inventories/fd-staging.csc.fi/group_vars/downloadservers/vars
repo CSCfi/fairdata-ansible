@@ -29,7 +29,7 @@ download_application_service_metax_url: 'https://metax.demo.fairdata.fi/'
 download_application_service_metax_user: '{{ vault_download_application_service_metax_user }}'
 download_application_service_metax_pass: '{{ vault_download_application_service_metax_pass }}'
 download_application_environment: 'development'
-download_application_jwt_secret: '{{ vault_download_application_jwt_secret }}'
+download_application_jwt_secret: '{{ vault_download_application_jwt_secret }}'
 
 # Nginx variables
 # ~~~~~~~~~~~~~~~
