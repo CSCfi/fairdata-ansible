@@ -110,8 +110,8 @@
       ldap_host: '{{ etsin_qvain_ldap_host | default("127.0.0.1")}}'
       ldap_bind: '{{ etsin_qvain_ldap_bind | default("False")}}'
       ldap_password: '{{ etsin_qvain_ldap_password | default("not_used")}}'
-      ldap_user_filters: '{{ etsin_qvain_ldap_user_filters | default(omit) }}'
-      ldap_project_filters: '{{ etsin_qvain_ldap_project_filters | default(omit) }}'
+      ldap_user_filters: '{{ etsin_qvain_ldap_user_filters | default("") }}'
+      ldap_project_filters: '{{ etsin_qvain_ldap_project_filters | default("") }}'
 
       # Flags
       # ----------------------
