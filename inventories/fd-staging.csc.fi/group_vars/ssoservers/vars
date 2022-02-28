@@ -2,7 +2,7 @@
 # Repository variables
 # ~~~~~~~~~~~~~~~~~~~~
 sso_repo_url: 'ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-sso-dev.git'
-sso_repo_version: 'staging'
+sso_repo_version: '{{ env_repo_version }}'
 
 # Application variables
 # ~~~~~~~~~~~~~~~~~~~~~

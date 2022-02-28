@@ -12,7 +12,7 @@
 # Repository variables
 # ~~~~~~~~~~~~~~~~~~~~
 download_repo_url: 'ssh://git@gitlab.ci.csc.fi:10022/fairdata/fairdata-download-service.git'
-download_repo_version: 'staging'
+download_repo_version: '{{ env_repo_version }}'
 
 # RabbitMQ variables
 # ~~~~~~~~~~~~~~~~~~
@@ -29,7 +29,7 @@ download_application_service_metax_url: 'https://metax.demo.fairdata.fi/'
 download_application_service_metax_user: '{{ vault_download_application_service_metax_user }}'
 download_application_service_metax_pass: '{{ vault_download_application_service_metax_pass }}'
 download_application_environment: 'development'
-download_application_jwt_secret: '{{ vault_download_application_jwt_secret }}'
+download_application_jwt_secret: '{{ vault_download_application_jwt_secret }}'
 
 # Nginx variables
 # ~~~~~~~~~~~~~~~
@@ -37,3 +37,8 @@ download_configure_nginx: True
 download_nginx_internal_port: 443
 download_nginx_ssl_certificate: '/etc/pki/tls/certs/fd-staging.csc.fi.crt.pem'
 download_nginx_ssl_certificate_key: '/etc/pki/tls/private/fd-staging.csc.fi.key.pem'
+
+
+# Common variables
+# ~~~~~~~~~~~~~~~
+debug: False
