@@ -10,7 +10,7 @@
       prepare_application: False
       deploy_application: False
       update_proxy: False
-      git_installation: True
+      update_git_repository: True
 
       # Directory variables
       # ~~~~~~~~~~~~~~~~~
