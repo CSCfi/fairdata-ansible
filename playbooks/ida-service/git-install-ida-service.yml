@@ -1,0 +1,89 @@
+---
+- name: Deploy Fairdata IDA Service
+  hosts: idafrontendservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-ida
+    vars:
+      # Control variables
+      # ~~~~~~~~~~~~~~~~~
+      prepare_application: False
+      deploy_application: False
+      update_proxy: False
+      git_installation: True
+
+      # Directory variables
+      # ~~~~~~~~~~~~~~~~~
+      directory_data1_root: '{{ ida_directory_data1_root | default("/mnt/storage_vol01") }}'
+      directory_data2_root: '{{ ida_directory_data2_root | default("/mnt/storage_vol02") }}'
+
+      # Instance variables
+      # ~~~~~~~~~~~~~~~~~~
+      instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
+      instance_name: '{{ ida_instance_name | default("ida") }}'
+
+      # Python variables
+      # ~~~~~~~~~~~~~~~~
+      python_virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
+
+      # Rabbitmq variables
+      # ~~~~~~~~~~~~~~~~~~
+      rabbitmq_host: '{{ ida_rabbitmq_host | default("localhost") }}'
+      rabbitmq_port: '{{ ida_rabbitmq_port | default(5672) }}'
+      rabbitmq_vhost: '{{ ida_rabbitmq_vhost | default("ida-vhost") }}'
+      rabbitmq_worker_user: '{{ ida_rabbitmq_worker_user | default("worker") }}'
+      rabbitmq_worker_pass: '{{ ida_rabbitmq_worker_pass | default("test") }}'
+
+      # Repo variables
+      # ~~~~~~~~~~~~~~
+      repo_ida_url: '{{ ida_repo_url | default("https://github.com/CSCfi/ida2") }}'
+      repo_ida_version: '{{ ida_repo_version | default("master") }}'
+      repo_ida_tools_url: '{{ ida_repo_tools_url | default("https://github.com/CSCfi/ida2-command-line-tools") }}'
+      repo_ida_tools_version: '{{ ida_repo_tools_version | default("master") }}'
+
+      # Redis variables
+      # ~~~~~~~~~~~~~~~
+      redis_host: '{{ ida_redis_host | default("localhost") }}'
+      redis_port: '{{ ida_redis_port | default(6379) }}'
+
+      # Database variables
+      # ~~~~~~~~~~~~~~~~~~
+      db_type: '{{ ida_db_type | default("pgsql") }}'
+      db_host: '{{ ida_db_host | default("localhost") }}'
+      db_port: '{{ ida_db_port | default(5432) }}'
+      db_admin_user: '{{ ida_db_admin_user | default("admin") }}'
+      db_admin_password: '{{ ida_db_admin_password | default("secret") }}'
+      db_user: '{{ ida_db_user | default("nextcloud") }}'
+      db_password: '{{ ida_db_password | default("nextcloud") }}'
+
+      # Application variables
+      # ~~~~~~~~~~~~~~~~~~~~~
+      application_environment: '{{ ida_application_environment | default("TEST")}}'
+      application_debug: '{{ ida_application_debug | default("true")}}'
+      application_no_flush_after_tests: '{{ ida_application_flush_after_tests | default("true")}}'
+
+      application_user: '{{ ida_application_user | default("apache")}}'
+
+      application_admin_user: '{{ ida_application_admin_user | default("admin") }}'
+      application_admin_pass: '{{ ida_application_admin_pass | default("test") }}'
+      application_project_user_pass: '{{ ida_application_project_user_pass | default("test") }}'
+      application_test_user_pass: '{{ ida_application_test_user_pass | default("test") }}'
+      application_batch_action_token: '{{ ida_application_batch_action_token | default("test") }}'
+
+      application_storage_candidates: '{{ ida_application_storage_candidates | default(["/mnt/storage_vol01/ida", "/mnt/storage_vol02/ida"]) }}'
+      application_passwordhash: '{{ ida_application_passwordhash | default("passwordhash") }}'
+      application_secret: '{{ ida_application_secret | default("secret") }}'
+      metax_base_url: '{{ ida_metax_base_url | default("https://metax.fairdata.fi/") }}'
+      metax_file_storage_id: '{{ ida_metax_file_storage_id | default("urn:nbn:fi:att:file-storage-ida") }}'
+      metax_user: '{{ ida_metax_user | default("ida") }}'
+      metax_pass: '{{ metax_application_ida_user_password | default("not-used") }}'
+      sso_api_url: '{{ ida_sso_api_url | default("https://sso.fairdata.fi") }}'
+      sso_api_domain: '{{ ida_sso_api_domain | default("fairdata.fi") }}'
+      sso_authentication: '{{ ida_sso_authentication | default("false") }}'
+      sso_key: '{{ ida_sso_key | default("secret") }}'
+      sso_password: '{{ ida_sso_password | default("test") }}'
+      ldap_host_url: '{{ ida_ldap_host_url | default("ldaps://ldap.example.com") }}'
+      ldap_bind_user: '{{ ida_ldap_bind_user | default("uid=test,ou=Special Users,dc=csc,dc=fi") }}'
+      ldap_password: '{{ ida_ldap_password | default("secret") }}'
+      ldap_search_base: '{{ ida_ldap_search_base | default("ou=idm,dc=csc,dc=fi") }}'
+      fdwe_url: '{{ ida_fdwe_url | default("https://matomo.fairdata.fi/fdwe.js") }}'
