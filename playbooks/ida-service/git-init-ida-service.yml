@@ -1,0 +1,15 @@
+---
+- name: Deploy Fairdata IDA Service
+  hosts: idafrontendservers
+  remote_user: '{{ deployer }}'
+  roles:
+  - role: fairdata-ansible-ida
+    vars:
+      # Control variables
+      # ~~~~~~~~~~~~~~~~~
+      initialize_git_repository: True
+      update_git_repository: False
+      delete_tests: False
+      prepare_application: False
+      deploy_application: False
+      update_proxy: False
