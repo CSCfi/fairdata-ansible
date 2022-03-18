@@ -1,5 +1,5 @@
 ---
-- name: Delete Fairdata Download Service
+- name: Deploy Fairdata Download Service
   hosts: downloadservers
   remote_user: '{{ deployer }}'
   roles:
@@ -7,25 +7,27 @@
     vars:
       prepare_application: False
       deploy_application: True
-      delete_deployment: True
       configure_nginx: False
       instance_domain: '{{ fairdata_domain | default("fairdata.fi") }}'
       host_domain_name: '{{ download_host_domain_name | default("ida.fairdata.fi")}}'
-      deployment_fqdn: '{{ deployment_name }}.{{ instance_domain }}'
       virtualenv_command: '{{ fairdata_python_virtualenv_command | default("virtualenv") }}'
       repo_install_method: '{{ download_repo_install_method | default("pull") }}'
       repo_deploy_key: '{{ download_repo_deploy_key | default("~/.ssh/id_rsa") }}'
       repo_url: '{{ download_repo_url | default("https://github.com/CSCfi/fairdata-download-service.git") }}'
       repo_version: '{{ download_repo_version | default("master") }}'
       repo_src: '{{ download_repo_src }}'
+      directory_cache_root: '{{ download_directory_cache_root | default("/mnt/download-service-cache") }}'
+      directory_ida_storage_root: '{{ download_directory_ida_storage_root | default("/mnt/download-ida-storage") }}'
+      rabbitmq_host: '{{ download_rabbitmq_host | default("localhost") }}'
+      rabbitmq_vhost: '{{ download_rabbitmq_vhost | default("download") }}'
+      rabbitmq_user: '{{ download_rabbitmq_user | default("download") }}'
+      rabbitmq_pass: '{{ download_rabbitmq_pass }}'
       application_environment: '{{ download_application_environment | default("production") }}'
-      application_cache_root: '{{ download_application_cache_root | default("/mnt/download-service-cache") }}'
-      application_ida_storage_root: '{{ download_application_ida_storage_root | default("/mnt/download-ida-storage") }}'
-      application_rabbitmq_host: '{{ download_application_rabbitmq_host | default("localhost") }}'
-      application_rabbitmq_vhost: '{{ download_application_rabbitmq_vhost | default("download") }}'
-      application_rabbitmq_user: '{{ download_application_rabbitmq_user | default("download") }}'
-      application_rabbitmq_pass: '{{ download_application_rabbitmq_pass }}'
       application_jwt_secret: '{{ download_application_jwt_secret }}'
       application_service_metax_url: '{{ download_application_service_metax_url | default("https://metax.fairdata.fi/") }}'
       application_service_metax_user: '{{ download_application_service_metax_user }}'
       application_service_metax_pass: '{{ download_application_service_metax_pass }}'
+      celeryd_min_workers: '{{ download_celeryd_min_workers | default(1) }}'
+      celeryd_max_workers: '{{ download_celeryd_max_workers | default(10) }}'
+      gunicorn_workers: '{{ download_gunicorn_workers | default(1) }}'
+      gunicorn_threads: '{{ download_gunicorn_threads | default(4) }}'

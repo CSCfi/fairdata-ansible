@@ -42,3 +42,4 @@
     vars:
       prepare_application: True
       deploy_application: False
+      configure_nginx: True
