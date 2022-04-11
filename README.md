@@ -1,3 +1,5 @@
+**This repository is no longer actively maintained as a public repository in GitHub.**
+
 # Fairdata Ansible
 
 This repository contains Ansible playbooks for deployment and operation of
